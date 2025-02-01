@@ -1,0 +1,49 @@
+.size-filter {
+    margin: 20px;
+    font-family: "Arial", sans-serif;
+    max-width: 400px;
+  }
+  
+  .filter-label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .sizes-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .size-button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: 2px solid #007bff;
+    background-color: white;
+    color: #007bff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .size-button.selected {
+    background-color: #007bff;
+    color: white;
+    border-color: #0056b3;
+  }
+  
+  .size-button:hover {
+    background-color: #0056b3;
+    color: white;
+  }
+  
+  .selected-sizes {
+    margin-top: 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+  }
+  

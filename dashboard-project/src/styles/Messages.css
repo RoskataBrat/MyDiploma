@@ -1,0 +1,109 @@
+.messages {
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.messages h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.messages textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  resize: none;
+  transition: border-color 0.3s ease;
+}
+
+.messages textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.messages button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.messages button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+  .messages {
+    padding: 15px;
+    max-width: 90%;
+  }
+
+  .messages h2 {
+    font-size: 1.6rem;
+  }
+
+  .messages textarea {
+    font-size: 14px;
+  }
+
+  .messages button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .messages {
+    padding: 10px;
+  }
+
+  .messages h2 {
+    font-size: 1.4rem;
+  }
+
+  .messages textarea {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .messages button {
+    font-size: 13px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .messages {
+    padding: 5px;
+    max-width: 95%;
+  }
+
+  .messages h2 {
+    font-size: 1.2rem;
+  }
+
+  .messages textarea {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .messages button {
+    font-size: 12px;
+    padding: 8px;
+  }
+}

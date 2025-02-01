@@ -1,0 +1,47 @@
+/* Dashboard.css */
+.dashboard {
+    background-color: #f3f4f6;
+    padding: 20px;
+    height: 100%;
+  }
+  
+  .card-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    flex: 1 1 calc(33.333% - 20px);
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  
+  .card .title {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 8px;
+  }
+  
+  .card .value {
+    font-size: 28px;
+    color: #1f2937;
+    font-weight: 600;
+  }
+  
+  .card .progress {
+    font-size: 12px;
+    color: #10b981;
+  }
+  
+  .card .icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    color: #9ca3af;
+  }
+  

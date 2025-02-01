@@ -1,0 +1,86 @@
+/* General Liked Products Container */
+#cart {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping for smaller screens */
+    gap: 20px;
+  }
+  
+  /* Product List Section */
+  #cart .products {
+    flex: 1; /* Takes full space as there’s no cart-totals */
+    min-width: 60%; /* Ensures it shrinks on smaller screens */
+  }
+  
+  /* Header for Liked Products */
+  #cart h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  #cart p {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  /* Individual Product Row */
+  .product {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+  }
+  
+  /* Product Name */
+  .product p {
+    flex: 2;
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  /* Product Image */
+  .product img {
+    width: 60px;
+    height: auto;
+    margin-right: 10px;
+    border-radius: 5px;
+  }
+  
+  /* Unit Price */
+  .unit-price {
+    flex: 1;
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  /* Remove Button */
+  .remove {
+    padding: 5px 10px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .remove:hover {
+    background-color: #cc0000;
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
+    #cart {
+      flex-direction: column; /* Stacks the product list */
+    }
+  
+    #cart .products {
+      width: 100%; /* Take full width on smaller screens */
+    }
+  }
+  
