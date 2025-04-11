@@ -36,13 +36,7 @@ const orderSchema = new mongoose.Schema({
   email: String,
   address: String,
   phone: String,
-  items: [
-    {
-      name: String,
-      price: Number,
-      quantity: Number,
-    },
-  ],
+  items: [{ type: String, required: true }],
   total: Number,
   date: { type: Date, default: Date.now },
   status: { type: String, default: "Pending" }, // Default status for new orders

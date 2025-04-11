@@ -1,12 +1,18 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import { Button } from "react-bootstrap";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { TfiFullscreen } from "react-icons/tfi";
-import "../../Pages/Electronics.css";
+import "../../styles/Electronics.css";
 import ProductModal from "../../Components/ProductModal";
 import torta_shoko from "../../assets/images/torta_shokoladova.webp";
+import portfeil from "../../assets/images/portfeil.webp";
+import ochila_boss from "../../assets/images/ochila_boss.avif";
+import ochila_carera from "../../assets/images/ochila_carera.avif";
+import { useNavigate } from "react-router-dom";
+import { MyContext } from "../../App";
 
 const Accessories = () => {
+  const navigate = useNavigate();
   const [isOpenProductModal, setisOpenProductModal] = useState(false);
   const [priceRange, setPriceRange] = useState([0, 2000]);
   const [selectedCategories, setSelectedCategories] = useState([]);
@@ -32,10 +38,12 @@ const Accessories = () => {
     setPriceRange(newPriceRange);
   };
 
+  const { toggleLikeProduct, likedProducts } = useContext(MyContext); // Access context here
+
   const products = [
-    { id: 1, name: "Сахер", category: "cakes", price: 100, image: torta_shoko },
-    { id: 2, name: "Сахер", category: "cakes", price: 100, image: torta_shoko },
-    { id: 3, name: "Сахер", category: "cakes", price: 100, image: torta_shoko },
+    { id: 1, name: "Портфейл - Естествена кожа", category: "portfail", slug:"portfeil", price: 100, image: portfeil },
+    { id: 2, name: "Boss - слънчеви очила", category: "glasses",slug:"ochila_boss", price: 100, image: ochila_boss },
+    { id: 3, name: "Carera - слънчеви очила", category: "glasses",slug:"ochila_carera", price: 100, image: ochila_carera },
   ];
 
   const filteredProducts = products.filter(
@@ -45,8 +53,8 @@ const Accessories = () => {
       product.price <= priceRange[1]
   );
 
-  const viewProductDetails = (id) => {
-    setisOpenProductModal(true);
+  const viewProductDetails = (slug) => {
+    navigate(`/product/${slug}`); // Navigate to the product details page
   };
 
   const closeProductModal = () => {
@@ -65,19 +73,19 @@ const Accessories = () => {
                 <input
                   type="checkbox"
                   value="cakes"
-                  onChange={() => handleCategoryChange("cakes")}
-                  checked={selectedCategories.includes("cakes")}
+                  onChange={() => handleCategoryChange("portfail")}
+                  checked={selectedCategories.includes("portfail")}
                 />
-                Кексове
+                Потрфейли
               </label>
               <label>
                 <input
                   type="checkbox"
                   value="accessories"
-                  onChange={() => handleCategoryChange("accessories")}
-                  checked={selectedCategories.includes("accessories")}
+                  onChange={() => handleCategoryChange("glasses")}
+                  checked={selectedCategories.includes("glasses")}
                 />
-                Аксесоари
+                Очила
               </label>
             </div>
           </div>
@@ -119,17 +127,20 @@ const Accessories = () => {
 
         {/* Products */}
         <div className="product-container">
-          {filteredProducts.map((product) => (
+          {filteredProducts.map((product) => {
+            const isLiked = likedProducts.some((p) => p.id === product.id); // Check if product is liked
+            return(
             <div key={product.id} className="item productItem2">
               <div className="imgWrapper">
                 <img src={product.image} alt={product.name} />
                 <span className="badge badge-primary">28%</span>
                 <div className="actions">
-                  <Button onClick={() => viewProductDetails(product.id)}>
+                  <Button onClick={() => viewProductDetails(product.slug)}>
                     <TfiFullscreen />
                   </Button>
-                  <Button>
-                    <IoMdHeartEmpty style={{ fontSize: "20px" }} />
+                  <Button onClick={() => toggleLikeProduct(product)}>
+                    <IoMdHeartEmpty
+                      style={{fontSize: "20px",color: isLiked ? "red" : "black",}}/>
                   </Button>
                 </div>
               </div>
@@ -137,12 +148,12 @@ const Accessories = () => {
                 <h4>{product.name}</h4>
                 <span className="text-success">В наличност</span>
                 <div className="d-flex">
-                  <span className="oldPrice">${product.price + 100}.00</span>
-                  <span className="netPrice text-danger ml-2">${product.price}.00</span>
+                  <span className="oldPrice">{product.price + 100}.00 лв.</span>
+                  <span className="netPrice text-danger ml-2">{product.price}.00 лв.</span>
                 </div>
               </div>
             </div>
-          ))}
+          )})}
         </div>
       </div>
 

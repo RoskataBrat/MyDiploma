@@ -1,21 +1,24 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import { Button } from "react-bootstrap";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { TfiFullscreen } from "react-icons/tfi";
 import { useNavigate } from "react-router-dom";
-import "../../Pages/Electronics.css";
+import "../../styles/Electronics.css";
 import iphone from "../../assets/images/iphone.jpg";
 import laptop from "../../assets/images/laptop.png";
 import razer from "../../assets/images/razer.jpg";
 import samsungA54 from "../../assets/images/samsungA54.jpg";
 import wirelessMouse from "../../assets/images/wireless_mouse.jpg";
 import ProductModal from "../ProductModal";
+import { MyContext } from "../../App";
 
 const Electronics = () => {
   const navigate = useNavigate();
   const [isOpenProductModal, setisOpenProductModal] = useState(false);
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [priceRange, setPriceRange] = useState([0, 2000]);
+
+  const { toggleLikeProduct, likedProducts } = useContext(MyContext); // Access context here
 
   const products = [
     { id: 1, name: "iPhone", category: "smartphone", price: 899, image: iphone },
@@ -68,7 +71,7 @@ const Electronics = () => {
         {/* Sidebar Filters */}
         <div className="filters">
           <div className="filter-section">
-            <h4>Category:</h4>
+            <h4>Категории:</h4>
             <label>
               <input
                 type="checkbox"
@@ -76,7 +79,7 @@ const Electronics = () => {
                 onChange={() => handleCategoryChange("smartphone")}
                 checked={selectedCategories.includes("smartphone")}
               />
-              Smartphone
+              Смартфони
             </label>
             <label>
               <input
@@ -85,7 +88,7 @@ const Electronics = () => {
                 onChange={() => handleCategoryChange("laptop")}
                 checked={selectedCategories.includes("laptop")}
               />
-              Laptop
+              Лаптпопи
             </label>
             <label>
               <input
@@ -94,7 +97,7 @@ const Electronics = () => {
                 onChange={() => handleCategoryChange("pc")}
                 checked={selectedCategories.includes("pc")}
               />
-              PC
+              Компютри
             </label>
             <label>
               <input
@@ -103,7 +106,7 @@ const Electronics = () => {
                 onChange={() => handleCategoryChange("accessories")}
                 checked={selectedCategories.includes("accessories")}
               />
-              Accessories
+              Аксесоарии
             </label>
           </div>
 
@@ -145,8 +148,10 @@ const Electronics = () => {
 
         {/* Products */}
         <div className="product-container">
-          {filteredProducts.map((product) => (
-            <div key={product.id} className="item productItem2">
+          {filteredProducts.map((product) => {
+            const isLiked = likedProducts.some((p) => p.id === product.id); // Check if product is liked
+            return(
+            <div key={product.id} className="item productItem2" onClick={() => viewProductDetails(product.slug)}>
               <div className="imgWrapper">
                 <img src={product.image} alt={product.name} />
                 <span className="badge badge-primary">28%</span>
@@ -154,21 +159,26 @@ const Electronics = () => {
                   <Button onClick={() => viewProductDetails(product.id)}>
                     <TfiFullscreen />
                   </Button>
-                  <Button>
-                    <IoMdHeartEmpty style={{ fontSize: "20px" }} />
+                   <Button onClick={() => toggleLikeProduct(product)}>
+                    <IoMdHeartEmpty
+                      style={{
+                        fontSize: "20px",
+                        color: isLiked ? "red" : "black", // Change color if liked
+                      }}
+                    />
                   </Button>
                 </div>
               </div>
               <div className="info">
                 <h4>{product.name}</h4>
-                <span className="text-success">In Stock</span>
+                <span className="text-success">В наличност</span>
                 <div className="d-flex">
-                  <span className="oldPrice">${product.price + 100}.00</span>
-                  <span className="netPrice text-danger ml-2">${product.price}.00</span>
+                  <span className="oldPrice">{product.price + 100}.00 лв.</span>
+                  <span className="netPrice text-danger ml-2">{product.price}.00 лв.</span>
                 </div>
               </div>
             </div>
-          ))}
+          )})}
         </div>
       </div>
 

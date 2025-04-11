@@ -1,24 +1,32 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import { Button } from "react-bootstrap";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { TfiFullscreen } from "react-icons/tfi";
-import "../../Pages/Electronics.css";
+import "../../styles/Electronics.css";
 import ProductModal from "../../Components/ProductModal";
 import torta_shoko from "../../assets/images/torta_shokoladova.webp";
+import pyteka from "../../assets/images/pyteka.webp";
+import dymbeli from "../../assets/images/dymbeli.webp";
+import giletka from "../../assets/images/giletka.webp";
+import { useNavigate } from "react-router-dom";
+import { MyContext } from "../../App";
 
 const Gagets = () => {
+  const navigate = useNavigate();
   const [isOpenProductModal, setisOpenProductModal] = useState(false);
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [priceRange, setPriceRange] = useState([0, 2000]);
 
+  const { toggleLikeProduct, likedProducts } = useContext(MyContext); // Access context here
+
   const products = [
-    { id: 1, name: "Сахер", brand: "Неделя", category: "cakes", price: 100, image: torta_shoko },
-    { id: 2, name: "Сахер", brand: "Неделя", category: "cakes", price: 120, image: torta_shoko },
-    { id: 3, name: "Сахер", brand: "Неделя", category: "cakes", price: 150, image: torta_shoko },
+    { id: 1, name: "Пътека за бягане", brand: "Неделя", category: "machines",slug:"pyteka", price: 100, image: pyteka },
+    { id: 2, name: "Дъмбели до 30 кг", brand: "Неделя", category: "weights",slug:"dymbeli", price: 120, image: dymbeli },
+    { id: 3, name: "Жилетка до 20 кг", brand: "Неделя", category: "weights",slug:"giletka", price: 150, image: giletka },
   ];
 
-  const viewProductDetails = (id) => {
-    setisOpenProductModal(true);
+  const viewProductDetails = (slug) => {
+    navigate(`/product/${slug}`); // Navigate to the product details page
   };
 
   const closeProductModal = () => {
@@ -64,28 +72,19 @@ const Gagets = () => {
               <input
                 type="checkbox"
                 value="cakes"
-                onChange={() => handleCategoryChange("cakes")}
-                checked={selectedCategories.includes("cakes")}
+                onChange={() => handleCategoryChange("weights")}
+                checked={selectedCategories.includes("weights")}
               />
-              Кексове / Мъфини
+              Тежести
             </label>
             <label>
               <input
                 type="checkbox"
                 value="kroasans"
-                onChange={() => handleCategoryChange("kroasans")}
-                checked={selectedCategories.includes("kroasans")}
+                onChange={() => handleCategoryChange("machines")}
+                checked={selectedCategories.includes("machines")}
               />
-              Кроасани
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                value="baklavas"
-                onChange={() => handleCategoryChange("baklavas")}
-                checked={selectedCategories.includes("baklavas")}
-              />
-              Баклави
+              Машини
             </label>
           </div>
           <div className="price-filter">
@@ -126,17 +125,20 @@ const Gagets = () => {
 
         {/* Products */}
         <div className="product-container">
-          {filteredProducts.map((product) => (
-            <div key={product.id} className="item productItem2">
+          {filteredProducts.map((product) => {
+             const isLiked = likedProducts.some((p) => p.id === product.id); // Check if product is liked
+             return(
+            <div key={product.id} className="item productItem2" onClick={() => viewProductDetails(product.slug)}>
               <div className="imgWrapper">
                 <img src={product.image} alt={product.name} />
                 <span className="badge badge-primary">28%</span>
                 <div className="actions">
-                  <Button onClick={() => viewProductDetails(product.id)}>
+                  <Button onClick={() => viewProductDetails(product.slug)}>
                     <TfiFullscreen />
                   </Button>
-                  <Button>
-                    <IoMdHeartEmpty style={{ fontSize: "20px" }} />
+                  <Button onClick={() => toggleLikeProduct(product)}>
+                    <IoMdHeartEmpty
+                      style={{fontSize: "20px",color: isLiked ? "red" : "black",}}/>
                   </Button>
                 </div>
               </div>
@@ -144,12 +146,12 @@ const Gagets = () => {
                 <h4>{product.name}</h4>
                 <span className="text-success">В наличност</span>
                 <div className="d-flex">
-                  <span className="oldPrice">${product.price + 100}.00</span>
-                  <span className="netPrice text-danger ml-2">${product.price}.00</span>
+                  <span className="oldPrice">{product.price + 100}.00 лв.</span>
+                  <span className="netPrice text-danger ml-2">{product.price}.00 лв.</span>
                 </div>
               </div>
             </div>
-          ))}
+          )})}
         </div>
       </div>
 

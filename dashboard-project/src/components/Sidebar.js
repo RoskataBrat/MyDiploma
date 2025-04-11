@@ -8,29 +8,29 @@ const Sidebar = () => {
 
   return (
     <div className={`sidebar ${theme}`}>
-      <h1 className="sidebar-logo">HOTASH</h1>
+      <h1 className="sidebar-logo">ADMINSPOT</h1>
       <ul className="sidebar-menu">
         <li>
-          <Link to="/dashboard">Dashboard</Link>
+          <Link to="/dashboard">Табло за управление</Link>
         </li>
-        <li>
+        {/*<li>
           <Link to="/products">Products</Link>
-        </li>
+        </li>*/}
         <li>
-          <Link to="/orderList">Orders</Link>
+          <Link to="/orderList">Поръчки</Link>
         </li>
-        <li>
-          <Link to="/messages">Messages</Link> {/* Link to Messages */}
-        </li>
-        <li>
+        {/*<li>
+          <Link to="/messages">Съобщения</Link>
+        </li>*/}
+        {/*<li>
           <Link to="/notifications">
-            Notifications <span className="sidebar-badge">{notifications.length}</span>
+            Известия <span className="sidebar-badge">{notifications.length}</span>
           </Link>
-        </li>
+        </li>*/}
       </ul>
       <div className="theme-toggle">
         <button onClick={toggleTheme}>
-          {theme === "light" ? "Switch to Dark" : "Switch to Light"}
+          {theme === "light" ? "Смени на тъмен екран" : "Смени на светъл екран"}
         </button>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { MyContext } from "../../App";
-import Logo from "../../assets/images/bacola-logo.png";
+import original_Logo from "../../assets/images/logo.png";
 import GoogleImg from "../../assets/images/google-logo.webp";
 import { Button } from "react-bootstrap";
 import { signin } from "../../api"; // Import API call
@@ -36,13 +36,19 @@ const SignIn = () => {
             context.setIsLogin(true);
             context.setUser(user);
 
-            // Success message and redirect
-            setMessage("Sign in successful!");
-            setMessageType("success");
-            navigate("/");
+            // Redirect based on role
+            if (user.isAdmin) {
+                setMessage("Admin login successful!");
+                setMessageType("success");
+                window.location.href = "http://localhost:3001/dashboard"; // Redirect to admin dashboard
+            } else {
+                setMessage("Sign in successful!");
+                setMessageType("success");
+                navigate("/"); // Redirect to the default home page
+            }
         } catch (err) {
             // Handle errors
-            setMessage(err.response?.data?.error || "An error occurred during Sign In.");
+            setMessage(err.response?.data?.message || "An error occurred during Sign In.");
             setMessageType("error");
         }
     };
@@ -52,10 +58,10 @@ const SignIn = () => {
             <div className="container">
                 <div className="box card p-3 shadow border-0">
                     <div className="text-center signInLogo">
-                        <img className="logoWrapper" src={Logo} alt="Logo" />
+                        <img className="logoWrapper" src={original_Logo} alt="Logo" />
                     </div>
                     <form className="mt-3" onSubmit={handleSubmit}>
-                        <h2 className="mb-4">Sign In</h2>
+                        <h2 className="mb-4">Влизане</h2>
 
                         {/* Display messages */}
                         {message && (
@@ -93,27 +99,27 @@ const SignIn = () => {
                             />
                         </div>
 
-                        <a className="border-effect cursor">Forgot Password?</a>
+                        {/*<a className="border-effect cursor">Забравена парола?</a>*/}
 
                         <div className="d-flex align-items-center mt-3 mb-3">
                             <Button type="submit" className="btn-blue w-100 btn-lg btn-big">
-                                Sign In
+                                Влез
                             </Button>
                         </div>
 
                         <p className="txt">
-                            Not Registered?{" "}
+                            Нямаш регистрация? {" "}
                             <Link to="/signUp" className="border-effect">
-                                Sign Up
+                                Регистрирай се
                             </Link>
                         </p>
 
-                        <h6 className="mt-3 text-center font-weight-bold">
+                        {!<h6 className="mt-3 text-center font-weight-bold">
                             Or continue with social account
-                        </h6>
-                        <Button className="loginWithGoogle mt-3" variant="outlined">
+                        </h6>}
+                        {!<Button className="loginWithGoogle mt-3" variant="outlined">
                             <img src={GoogleImg} alt="Google Logo" /> Sign In with Google
-                        </Button>
+                        </Button>}
                     </form>
                 </div>
             </div>

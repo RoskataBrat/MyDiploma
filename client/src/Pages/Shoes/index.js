@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { TfiFullscreen } from "react-icons/tfi";
 import ReactPaginate from "react-paginate";
-import "../../Pages/Electronics.css";
+import "../../styles/Electronics.css";
 import shoes_nike_gold from "../../assets/images/shoes_nike_gold.jpg";
 import shoes_jordan from "../../assets/images/jordan.webp";
+import { MyContext } from "../../App";
 
 const Shoes = () => {
   const navigate = useNavigate();
@@ -14,7 +15,9 @@ const Shoes = () => {
   const [priceRange, setPriceRange] = useState([0, 2000]);
   const [currentPage, setCurrentPage] = useState(0);
   const [selectedSizes, setSelectedSizes] = useState([]);
-  const sizes = ["XS", "S", "M", "L", "XL", "XXL"];
+  const sizes = ["37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47"];
+
+   const { toggleLikeProduct, likedProducts } = useContext(MyContext); // Access context here
 
   const productsPerPage = 6; // Number of products to display per page
   const products = [
@@ -114,7 +117,7 @@ const Shoes = () => {
             </label>
           </div>
 
-          <div className="size-filter">
+          {/*<div className="size-filter">
             <label className="filter-label">Изберете размери:</label>
             <div className="sizes-container">
               {sizes.map((size) => (
@@ -136,7 +139,7 @@ const Shoes = () => {
                 <span>Няма избрани размери</span>
               )}
             </div>
-          </div>
+          </div>*/}
 
           <div className="price-filter">
             <label className="slider-label">Ценнови диапазон:</label>
@@ -176,8 +179,10 @@ const Shoes = () => {
 
         {/* Product List */}
         <div className="product-container">
-  {filteredProducts.map((product) => (
-    <div key={product.id} className="item productItem2">
+  {filteredProducts.map((product) => {
+     const isLiked = likedProducts.some((p) => p.id === product.id); // Check if product is liked
+     return(
+    <div key={product.id} className="item productItem2" onClick={() => viewProductDetails(product.slug)}>
       <div className="imgWrapper">
         <img src={product.image} alt={product.name} />
         <span className="badge badge-primary">28%</span>
@@ -185,8 +190,13 @@ const Shoes = () => {
           <Button onClick={() => viewProductDetails(product.slug)}>
             <TfiFullscreen />
           </Button>
-          <Button>
-            <IoMdHeartEmpty style={{ fontSize: "20px" }} />
+          <Button onClick={() => toggleLikeProduct(product)}>
+            <IoMdHeartEmpty
+              style={{
+              fontSize: "20px",
+              color: isLiked ? "red" : "black", // Change color if liked
+            }}
+            />
           </Button>
         </div>
       </div>
@@ -194,28 +204,28 @@ const Shoes = () => {
         <h4>{product.name}</h4>
         <span className="text-success">В наличност</span>
         <div className="d-flex">
-          <span className="oldPrice">${product.price + 100}.00</span>
-          <span className="netPrice text-danger ml-2">${product.price}.00</span>
+          <span className="oldPrice">{product.price + 100}.00 лв.</span>
+          <span className="netPrice text-danger ml-2">{product.price}.00 лв.</span>
         </div>
       </div>
     </div>
-  ))}
+  )})}
 </div>
 
-{/* Pagination */}
-<div className="pagination-container">
-  <ReactPaginate
-    previousLabel={"<"}
-    nextLabel={">"}
-    breakLabel={"..."}
-    pageCount={pageCount}
-    marginPagesDisplayed={2}
-    pageRangeDisplayed={3}
-    onPageChange={handlePageChange}
-    containerClassName={"pagination"}
-    activeClassName={"active"}
-  />
-</div>
+  {/* Pagination */}
+  {/*<div className="pagination-container">
+    <ReactPaginate
+      previousLabel={"<"}
+      nextLabel={">"}
+      breakLabel={"..."}
+      pageCount={pageCount}
+      marginPagesDisplayed={2}
+      pageRangeDisplayed={3}
+      onPageChange={handlePageChange}
+      containerClassName={"pagination"}
+      activeClassName={"active"}
+    />
+  </div>*/}
 </div>
 
     </>

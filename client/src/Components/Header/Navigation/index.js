@@ -87,7 +87,7 @@ const Navigation = () => {
                                             className="sidebar-item"
                                             onClick={() => handleSubmenuToggle(0)}
                                         >
-                                            Хр.стоки
+                                            Хранителни стоки
                                             <FaAngleRight className="angle_right_sidebar" />
                                         </Button>
                                         {/* Submenu */}
@@ -119,7 +119,7 @@ const Navigation = () => {
 
                     {/* Horizontal Menu */}
                     <div className="col-12 col-md-10 navPart2 d-flex justify-content-between">
-                        <ul className="list list-inline">
+                        <ul className="navigation-vertical-list list-inline">
                             {[
                                 { name: "Начало", path: "/", subItems: [] },
                                 { name: "Мода", path: "/fashion", subItems: [
@@ -137,7 +137,7 @@ const Navigation = () => {
                                     { name: "Сладкиши", path: "/bakery/sweets" },
                                     { name: "Хляб", path: "/bakery/bread" },
                                 ] },
-                                { name: "Хр.стоки", path: "/grocery", subItems: [
+                                { name: "Храни", path: "/grocery", subItems: [
                                     { name: "Зеленчуци", path: "/grocery/vegetables" },
                                     { name: "Плодове", path: "/grocery/fruits" },
                                     { name: "Зърнени култури", path: "/grocery/snacks" },
@@ -147,7 +147,7 @@ const Navigation = () => {
                                     { name: "Джаджи", path: "/mobiles/gagets" },
                                     { name: "Кейсове", path: "/mobiles/cases" },
                                 ] },
-                                { name: "Свържи се с нас", path: "/contact", subItems: [] },
+                                { name: "Свържи се с нас", path: "/about-us", subItems: [] },
                             ].map((item, index) => (
                                 <li className="list-inline-item nav-item" key={index}>
                                     <Link to={item.path} className="nav-link">

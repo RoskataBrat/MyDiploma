@@ -38,7 +38,7 @@ const Home = ({ user, signOut }) => {
     <>
 
       <HomeBanner />
-      <HomeCat />
+      {!<HomeCat />}
       <FeaturedProducts />
 
       <section
@@ -148,7 +148,7 @@ const Home = ({ user, signOut }) => {
         </div>
       </section>
 
-      <Subscribe />
+      {!<Subscribe />}
     </>
   );
 };

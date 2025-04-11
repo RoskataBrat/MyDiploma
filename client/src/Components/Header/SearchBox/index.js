@@ -9,31 +9,59 @@ const SearchBox = () => {
     const navigate = useNavigate();
 
     const suggestionList = [
-        { name: "Gaming PC", slug: "gaming-pc" },
-        { name: "Laptop", slug: "laptop" },
-        { name: "iPhone", slug: "iphone" },
-        { name: "Wireless mouse", slug: "wireless mouse" },
-        { name: "Samsung A54", slug: "samsung A54" },
-        {name: "Xiaomi Redmi Note", slug: "xiaomi-redmi-note"},
-        {name: "Huawei Mate 40", slug: "huawei-mate-40"},
+        { name: "Adidas T-Shirt", slug: "adidasT" },
         { name: "Acer", slug: "laptop_Acer" },
         { name: "Acer2", slug: "laptop_Acer2" },
-        { name: "Lenovo ThinkBook", slug: "laptop_Lenovo" },
-        { name: "MacBook Air 15", slug: "laptop_Apple" },
-        { name: "HP", slug: "laptop_HP" },
+        { name: "Acer PC", slug: "pc_Acer" },
+        { name: "Apple iPad", slug: "pc_Apple" },
         { name: "ASUS", slug: "laptop_ASUS" },
         { name: "ASUS PC", slug: "pc_Asus" },
-        { name: "IPad", slug: "pc_Apple" },
-        { name: "Acer PC", slug: "pc_Acer" },
-        { name: "GIGABYTE PC", slug: "pc_gigabyte" },
-        { name: "HP PC", slug: "pc_hp" },
+        { name: "Баклава - Шан Фъстък", slug: "baklava" },
+        { name: "Банани", slug: "banan" },
+        { name: "Боб", slug: "beans" },
+        { name: "Boss - слънчеви очила", slug: "ochila_boss" },
         { name: "Calvin Clein T-Shirt", slug: "cklein" },
+        { name: "Carera - слънчеви очила", slug: "ochila_carera" },
+        { name: "Домат", slug: "domat" },
+        { name: "Дъмбели до 30 кг", slug: "dymbeli" },
+        { name: "Flexit Hat", slug: "hatFlexit" },
+        { name: "Грах", slug: "grah" },
         { name: "GUCCI T-Shirt", slug: "gucci" },
-        { name: "The Nort Face T-Shirt", slug: "nortface" },
-        { name: "Polo T-Shirt", slug: "polo" },
-        { name: "Adidas T-Shirt", slug: "adidasT" },
+        { name: "Gaming PC", slug: "gaming-pc" },
+        { name: "HP", slug: "laptop_HP" },
+        { name: "HP PC", slug: "pc_hp" },
+        { name: "Huawei Mate 40", slug: "huawei-mate-40" },
+        { name: "iPhone", slug: "iphone" },
+        { name: "Краставици", slug: "krastavica" },
+        { name: "Кроасан - Кетъринг", slug: "ketyring" },
+        { name: "Кроасан - Френски", slug: "kroasan" },
+        { name: "Lenovo ThinkBook", slug: "laptop_Lenovo" },
+        { name: "MacBook Air 15", slug: "laptop_Apple" },
+        { name: "Марула", slug: "marula" },
+        { name: "Мъфин - шоколадов", slug: "myphin" },
+        { name: "Nike Gold Shoes", slug: "nikeG" },
+        { name: "Nike Jordan Shoes", slug: "nikeJ" },
         { name: "Nike T-Shirt", slug: "nikeT" },
+        { name: "New York Hat", slug: "hatNewYork" },
+        { name: "Ориз", slug: "rice" },
+        { name: "Портокали", slug: "portokal" },
+        { name: "Портфейл - Естествена кожа", slug: "portfeil" },
+        { name: "Пълнозърнест хляб - Вита", slug: "vita" },
+        { name: "Пълнозърнест хляб - Симид", slug: "simid" },
+        { name: "Пътека за бягане", slug: "pyteka" },
+        { name: "Поло T-Shirt", slug: "polo" },
+        { name: "Samsung A54", slug: "samsung-a54" },
+        { name: "Торта - Сахер", slug: "saher" },
+        { name: "Торта - Черно кадифе", slug: "cherno_kadife" },
+        { name: "Торта - Червено кадифе", slug: "cherveno_kadife" },
+        { name: "The Nort Face T-Shirt", slug: "nortface" },
+        { name: "Wireless Mouse", slug: "wireless mouse" },
+        { name: "Xiaomi Redmi Note", slug: "xiaomi-redmi-note" },
+        { name: "Ябълки", slug: "qbylka" },
+        { name: "Хляб - Домашен", slug: "domashen" },
+        { name: "Жилетка до 20 кг", slug: "giletka" },
     ];
+    
 
     const handleInputChange = (e) => {
         const value = e.target.value;
@@ -83,7 +111,7 @@ const SearchBox = () => {
             <form className="headerSearch" onSubmit={handleSearchSubmit}>
                 <input
                     type="text"
-                    placeholder="Search for products....."
+                    placeholder="Търсене на продукти....."
                     className="search-input"
                     value={query}
                     onChange={handleInputChange}
@@ -104,7 +132,7 @@ const SearchBox = () => {
                         cursor: "pointer",
                     }}
                 >
-                    Clear
+                    X
                 </Button>
             </form>
             {suggestions.length > 0 && (

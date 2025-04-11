@@ -45,6 +45,18 @@ import krastavica from "../../assets/images/krastavica.jpg";
 import oriz from "../../assets/images/oriz.webp";
 import bob from "../../assets/images/bob.jpg";
 import grah from "../../assets/images/grah.webp";
+import portfeil from "../../assets/images/portfeil.webp";
+import ochila_boss from "../../assets/images/ochila_boss.avif";
+import ochila_carera from "../../assets/images/ochila_carera.avif";
+import pyteka from "../../assets/images/pyteka.webp";
+import dymbeli from "../../assets/images/dymbeli.webp";
+import giletka from "../../assets/images/giletka.webp";
+import suitsher_women from "../../assets/images/suitsher_women.jpg";
+import converse_shoes_women from "../../assets/images/converse_shoes_women.webp";
+import pola_puma from "../../assets/images/pola_women.jpg";
+import nike_shoes_women from "../../assets/images/nike_shoes_women.jpg";
+import elek_carly from "../../assets/images/elek_women.jpg";
+import roklq_women from "../../assets/images/roklq_women.webp";
 
 const products = [
     {
@@ -54,6 +66,7 @@ const products = [
         price: 1500.00,
         description: "High-performance gaming PC with RTX 3080 and 32GB RAM.",
         image: laptop ,
+        stock: true
     },
     {
         id: 2,
@@ -62,6 +75,7 @@ const products = [
         price: 299.00,
         description: "Powerful laptop for work and entertainment.",
         image: laptop ,
+        stock: true
     },
     {
         id: 3,
@@ -70,6 +84,7 @@ const products = [
         price: 899.00, // Change this to a number
          description: "Latest iPhone with cutting-edge technology.",
         image: iphone,
+        stock: true
     },
        
     {
@@ -79,6 +94,7 @@ const products = [
         price: 49.00,
         description: "Latest iPhone with cutting-edge technology.",
         image: wirelessMouse,
+        stock: true
     },
     {
         id: 5,
@@ -87,6 +103,7 @@ const products = [
         price: 49.00,
         description: "Latest iPhone with cutting-edge technology.",
         image: samsungA54,
+        stock: true
     },
 
 
@@ -110,6 +127,7 @@ const products = [
         price: 299.00,
         description: "Powerful laptop for work and entertainment.",
         image: acer_laptop,
+        stock: true
     },
     {
         id: 7,
@@ -118,6 +136,7 @@ const products = [
         price: 299.00,
         description: "Powerful laptop for work and entertainment.",
         image: acer_laptop,
+        stock: true
     },
     /*Lenovo*/
     {
@@ -127,6 +146,7 @@ const products = [
         price: 450.00,
         description: "Powerful laptop for work and entertainment.",
         image: lenovo_laptop,
+        stock: true
     },
      /*Apple*/
     {
@@ -136,6 +156,7 @@ const products = [
         price: 999.00,
         description: "Powerful laptop for work and entertainment.",
         image: apple_laptop,
+        stock: true
     },
     /*HP*/
     {
@@ -145,6 +166,7 @@ const products = [
         price: 199.00,
         description: "Powerful laptop for work and entertainment.",
         image: hp_laptop,
+        stock: true
     },
     /*ASUS*/
     {
@@ -154,6 +176,7 @@ const products = [
         price: 199.00,
         description: "Powerful laptop for work and entertainment.",
         image: asus_laptop,
+        stock: true
     },
 
     /*!!! Computers !!!*/
@@ -166,6 +189,7 @@ const products = [
         price: 199.00,
         description: "Powerful laptop for work and entertainment.",
         image: acer_pc,
+        stock: true
     },
     /*Apple*/
     {
@@ -184,6 +208,7 @@ const products = [
         price: 199.00,
         description: "Powerful laptop for work and entertainment.",
         image: asus_pc,
+        stock: true
     },
     /*Gigabyte*/
     {
@@ -193,6 +218,7 @@ const products = [
         price: 199.00,
         description: "Powerful laptop for work and entertainment.",
         image: gigabyte_pc,
+        stock: true
     },
     /*HP*/
     {
@@ -202,6 +228,7 @@ const products = [
         price: 199.00,
         description: "Powerful laptop for work and entertainment.",
         image: hp_pc,
+        stock: true
     },
 
      /*!!! T-Shirts !!!*/
@@ -209,57 +236,65 @@ const products = [
      {
         id: 17,
         slug: "cklein",
-        name: "Calvin Clein T-Shirt",
+        name: "Calvin Klein T-Shirt",
+        category:"tshirt",
         price: 39.00,
-        description: "Powerful laptop for work and entertainment.",
+        description: "Елегантна и минималистична тениска на Calvin Klein, изработена от висококачествен памук или смес от памук и еластан. Семпъл дизайн с логото 'Calvin Klein' на гърдите, подходящ за ежедневна или елегантна визия.",
         image: cklein,
-        stock:true
+        stock: true
     },
     {
         id: 18,
         slug: "gucci",
         name: "GUCCI T-Shirt",
+        category:"tshirt",
         price: 39.00,
-        description: "Powerful laptop for work and entertainment.",
+        description: "Луксозна тениска на Gucci с уникален дизайн, изработена от висококачествен органичен памук. Отличава се с емблематични елементи като логото 'GG' или принтове, подходяща за модни изявления.",
         image: tshirt_gucci,
-        stock:true
+        stock: true
     },
+    
     {
         id: 19,
         slug: "nortface",
-        name: "The Nort Face T-Shirt",
+        name: "The North Face T-Shirt",
+        category:"tshirt",
         price: 39.00,
-        description: "Powerful laptop for work and entertainment.",
+        description: "Удобна и функционална тениска на The North Face, изработена от дишащи и висококачествени материи. Подходяща за спорт и активен начин на живот, с емблематичното лого на марката отпред.",
         image: nortface,
-        stock:true
+        stock: true
     },
     {
         id: 20,
         slug: "polo",
         name: "Polo T-Shirt",
+        category:"tshirt",
         price: 39.00,
-        description: "Powerful laptop for work and entertainment.",
+        description: "Класическа тениска на Polo, изработена от мек и устойчив памук. С емблематичното лого на марката и стилен дизайн, подходяща за ежедневна визия с изискан акцент.",
         image: tshirt_polo,
-        stock:true
+        stock: true
     },
     {
         id: 21,
         slug: "adidasT",
         name: "Adidas T-Shirt",
+        category:"tshirt",
         price: 39.00,
-        description: "Powerful laptop for work and entertainment.",
+        description: "Спортна тениска на Adidas, изработена от лека и дишаща материя. Дизайнът включва отличителните три ленти и лого на марката, което я прави идеална за тренировки или ежедневие.",
         image: tshirt_adidas,
-        stock:true
+        stock: true
     },
     {
         id: 22,
         slug: "nikeT",
         name: "Nike T-Shirt",
+        category:"tshirt",
         price: 39.00,
-        description: "Powerful laptop for work and entertainment.",
+        description: "Модерна тениска на Nike, съчетаваща комфорт и стил. Изработена от висококачествени материи с технология за отвеждане на влагата и логото 'Just Do It', подходяща за активен живот.",
         image: tshirt_nike,
-        stock:true
+        stock: true
     },
+    
 
     /*!!! Shoes !!!*/
 
@@ -267,6 +302,7 @@ const products = [
         id: 23,
         slug: "nikeG",
         name: "Nike Gold Shoes",
+        category:"shoes",
         price: 39.00,
         description: "Powerful laptop for work and entertainment.",
         image: nikeG,
@@ -276,6 +312,7 @@ const products = [
         id: 24,
         slug: "nikeJ",
         name: "Nike Jordan Shoes",
+        category:"shoes",
         price: 39.00,
         description: "Powerful laptop for work and entertainment.",
         image: nikeJ,
@@ -289,6 +326,7 @@ const products = [
         id: 25,
         slug: "hatFlexit",
         name: "Flexit Hat",
+        category:"hats",
         price: 29.00,
         description: "Powerful laptop for work and entertainment.",
         image: hat_flexit,
@@ -299,6 +337,7 @@ const products = [
         id: 26,
         slug: "hatNewYork",
         name: "New York Hat",
+        category:"hats",
         price: 29.00,
         description: "Powerful laptop for work and entertainment.",
         image: hat_new_york,
@@ -411,6 +450,7 @@ const products = [
         slug: "banan",
         name: "Банани",
         price: 4.00,
+        category:"fruits",
         description: "Powerful laptop for work and entertainment.",
         image: banan,
         stock:true
@@ -420,6 +460,7 @@ const products = [
         slug: "portokal",
         name: "Портокали",
         price: 4.00,
+        category:"fruits",
         description: "Powerful laptop for work and entertainment.",
         image:portokal,
         stock:true
@@ -429,6 +470,7 @@ const products = [
         slug: "qbylka",
         name: "Ябълки",
         price: 4.00,
+        category:"fruits",
         description: "Powerful laptop for work and entertainment.",
         image:qbylka ,
         stock:true
@@ -441,6 +483,7 @@ const products = [
         slug: "marula",
         name: "Марула",
         price: 5.00,
+        category:"vegetables",
         description: "Powerful laptop for work and entertainment.",
         image:marula ,
         stock:true
@@ -450,6 +493,7 @@ const products = [
         slug: "domat",
         name: "Домати",
         price: 4.00,
+        category:"vegetables",
         description: "Powerful laptop for work and entertainment.",
         image:domat ,
         stock:true
@@ -459,6 +503,7 @@ const products = [
         slug: "krastavica",
         name: "Краставици",
         price: 4.00,
+        category:"vegetables",
         description: "Powerful laptop for work and entertainment.",
         image:krastavica ,
         stock:true
@@ -472,6 +517,7 @@ const products = [
         slug: "rice",
         name: "Ориз",
         price: 4.00,
+        category:"beansgoods",
         description: "Powerful laptop for work and entertainment.",
         image:oriz ,
         stock:true
@@ -481,6 +527,7 @@ const products = [
         slug: "beans",
         name: "Боб",
         price: 4.00,
+        category:"beansgoods",
         description: "Powerful laptop for work and entertainment.",
         image:bob,
         stock:true
@@ -490,11 +537,137 @@ const products = [
         slug: "grah",
         name: "Грах",
         price: 4.00,
+        category:"beansgoods",
         description: "Powerful laptop for work and entertainment.",
         image:grah ,
         stock:true
     },
+
+    /* !!! Others !!!*/
+
+    {
+        id: 46,
+        slug: "portfeil",
+        name: "Портфейл - Естествена кожа",
+        price: 19.99,
+        description: "Powerful laptop for work and entertainment.",
+        image:portfeil ,
+        stock:true
+    },
+
+    {
+        id: 47,
+        slug: "ochila_boss",
+        name: "Boss - слънчеви очила",
+        price: 99.99,
+        description: "Powerful laptop for work and entertainment.",
+        image:ochila_boss ,
+        stock:true
+    },
+
+    {
+        id: 48,
+        slug: "ochila_carera",
+        name: "Carera - слънчеви очила",
+        price: 99.99,
+        description: "Powerful laptop for work and entertainment.",
+        image:ochila_carera ,
+        stock:true
+    },
+
+    {
+        id: 49,
+        slug: "pyteka",
+        name: "Пътека за бягане",
+        price: 199.99,
+        description: "Powerful laptop for work and entertainment.",
+        image:pyteka ,
+        stock:true
+    },
+
+    {
+        id: 50,
+        slug: "dymbeli",
+        name: "Дъмбели до 30 кг",
+        price: 99.99,
+        description: "Powerful laptop for work and entertainment.",
+        image:dymbeli ,
+        stock:true
+    },
+
+    {
+        id: 51,
+        slug: "giletka",
+        name: "Жилетка до 20 кг",
+        price: 99.99,
+        description: "Powerful laptop for work and entertainment.",
+        image:giletka ,
+        stock:true
+    },
     
+
+    /* !!! SportsGoods for Women !!!*/
+
+    {
+        id: 52,
+        slug: "suitsher_spring",
+        name: "Суитшър - ELEONOR SPRING",
+        price: 39.99,
+        description: "Powerful laptop for work and entertainment.",
+        image:suitsher_women ,
+        stock:true
+    },
+
+    {
+        id: 53,
+        slug: "converse_obuvki",
+        name: "CONVERSE Обувки - Chuck Taylor All Star",
+        price: 99.99,
+        description: "Powerful laptop for work and entertainment.",
+        image:converse_shoes_women ,
+        stock:true
+    },
+
+    {
+        id: 54,
+        slug: "pola_dynkova",
+        name: "Пола - OLNSOPHIA",
+        price: 99.99,
+        description: "Powerful laptop for work and entertainment.",
+        image:pola_puma ,
+        stock:true
+    },
+
+    {
+        id: 55,
+        slug: "obuvki_w",
+        name: "NIKE - Обувки W UPLIFT SC",
+        price: 199.99,
+        description: "Powerful laptop for work and entertainment.",
+        image:nike_shoes_women ,
+        stock:true
+    },
+
+    {
+        id: 56,
+        slug: "puma_roklq",
+        name: "PUMA Рокля - ESS Slim",
+        price: 99.99,
+        description: "Powerful laptop for work and entertainment.",
+        image:roklq_women ,
+        stock:true
+    },
+
+    {
+        id: 57,
+        slug: "elek_carly",
+        name: "BRILLE Елек Carly",
+        price: 99.99,
+        description: "Powerful laptop for work and entertainment.",
+        image:elek_carly ,
+        stock:true
+    },
+
 ];
 
 export default products;

@@ -1,21 +1,24 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { TfiFullscreen } from "react-icons/tfi";
-import "../../Pages/Electronics.css";
+import "../../styles/Electronics.css";
 import ProductModal from "../../Components/ProductModal";
 import pc_acer from "../../assets/images/pc-acer.jpg";
 import pc_imac from "../../assets/images/pc-imac.jpg";
 import pc_asus from "../../assets/images/pc_asus.jpg";
 import pc_gigabyte from "../../assets/images/pc-gigabyte.jpg";
 import pc_hp from "../../assets/images/pc_hp.jpg";
+import { MyContext } from "../../App";
 
 const PC = () => {
   const navigate = useNavigate();
   const [isOpenProductModal, setisOpenProductModal] = useState(false);
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [priceRange, setPriceRange] = useState([0, 2000]);
+
+  const { toggleLikeProduct, likedProducts } = useContext(MyContext); // Access context here
 
   const products = [
     { id: 1, name: "Acer", brand: "Acer", price: 299, slug: "pc_Acer", image: pc_acer },
@@ -149,8 +152,10 @@ const PC = () => {
 
       {/* Products */}
       <div className="product-container">
-        {filteredProducts.map((product) => (
-          <div key={product.id} className="item productItem2">
+        {filteredProducts.map((product) => {
+          const isLiked = likedProducts.some((p) => p.id === product.id); // Check if product is liked
+          return(
+          <div key={product.id} className="item productItem2" onClick={() => viewProductDetails(product.slug)}>
             <div className="imgWrapper">
               <img src={product.image} alt={product.name} />
               <span className="badge badge-primary">28%</span>
@@ -158,21 +163,26 @@ const PC = () => {
                 <Button onClick={() => viewProductDetails(product.slug)}>
                   <TfiFullscreen />
                 </Button>
-                <Button>
-                  <IoMdHeartEmpty style={{ fontSize: "20px" }} />
+                <Button onClick={() => toggleLikeProduct(product)}>
+                    <IoMdHeartEmpty
+                      style={{
+                      fontSize: "20px",
+                      color: isLiked ? "red" : "black", // Change color if liked
+                    }}
+                  />
                 </Button>
               </div>
             </div>
             <div className="info">
               <h4>{product.name}</h4>
-              <span className="text-success">In Stock</span>
+              <span className="text-success">В наличност</span>
               <div className="d-flex">
-                <span className="oldPrice">${product.price + 100}.00</span>
-                <span className="netPrice text-danger ml-2">${product.price}.00</span>
+                <span className="oldPrice">{product.price + 100}.00 лв.</span>
+                <span className="netPrice text-danger ml-2">{product.price}.00 лв.</span>
               </div>
             </div>
           </div>
-        ))}
+        )})}
       </div>
     </div>
   );

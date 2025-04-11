@@ -41,19 +41,19 @@ function Example() {
 
     return (
         <>
-            <Button variant="primary" onClick={handleShow}>
-                {selectedCountry ? `Selected: ${selectedCountry.name}` : 'Your Location'}
+            <Button class="countryButton" variant="primary" onClick={handleShow}>
+                {selectedCountry ? `Избрано: ${selectedCountry.name}` : 'Твоята локация'}
             </Button>
 
             <Modal show={show} onHide={handleClose} className='locationModal'>
                 <Modal.Header>
-                    <Modal.Title className='headerSearch w-100 mb-0'>Choose your Delivery Location</Modal.Title>
+                    <Modal.Title className='headerSearch w-100 mb-0'>Избери твоята локация</Modal.Title>
                     <Button className='close_' onClick={handleClose}><IoMdClose /></Button>
                 </Modal.Header>
                 <Modal.Body>
                     <Form>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                            <Form.Label>Enter your address and we will specify the offer to your area.</Form.Label>
+                            <Form.Label>Въведи своя адрес.</Form.Label>
                             <Form.Control
                                 type="text"
                                 placeholder="Search your area..."
@@ -84,7 +84,7 @@ function Example() {
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
-                        Close
+                        Затвори
                     </Button>
                 </Modal.Footer>
             </Modal>

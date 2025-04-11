@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { TfiFullscreen } from "react-icons/tfi";
-import "../../Pages/Electronics.css";
+import "../../styles/Electronics.css";
 import "../../styles/SizeFilter.css";
 import teniska_adidas_blue from "../../assets/images/t_shirt_adidas_green.jpg";
 import tshirt_cklein from "../../assets/images/tshirt_cklein.jpg";
@@ -11,6 +11,7 @@ import tshirt_gucci from "../../assets/images/tshirt_gucci.webp";
 import tshirt_theNortFace from "../../assets/images/tshirt_theNortFace.jpg";
 import thsirt_polo from "../../assets/images/tshirt_polo.webp";
 import teniska_nike_blue_red from "../../assets/images/t_shirt_nike_blue_red.png";
+import { MyContext } from "../../App";
 
 const T_Shirts = () => {
   const navigate = useNavigate();
@@ -18,6 +19,8 @@ const T_Shirts = () => {
   const [priceRange, setPriceRange] = useState([0, 2000]);
   const [selectedSizes, setSelectedSizes] = useState([]);
   const sizes = ["XS", "S", "M", "L", "XL", "XXL"];
+
+  const { toggleLikeProduct, likedProducts } = useContext(MyContext); // Access context here
 
   const toggleSize = (size) => {
     setSelectedSizes((prevSelected) =>
@@ -131,7 +134,7 @@ const T_Shirts = () => {
             </label>
           </div>
 
-          <div className="size-filter">
+          {/*<div className="size-filter">
             <label className="filter-label">Изберете размери:</label>
             <div className="sizes-container">
               {sizes.map((size) => (
@@ -153,7 +156,7 @@ const T_Shirts = () => {
                 <span>Няма избрани размери</span>
               )}
             </div>
-          </div>
+          </div>*/}
 
           <div className="price-filter">
             <label className="slider-label">Ценнови диапазон:</label>
@@ -193,8 +196,10 @@ const T_Shirts = () => {
 
         {/* Products */}
         <div className="product-container">
-          {filteredProducts.map((product) => (
-            <div key={product.id} className="item productItem2">
+          {filteredProducts.map((product) => {
+            const isLiked = likedProducts.some((p) => p.id === product.id); // Check if product is liked
+            return(
+            <div key={product.id} className="item productItem2" onClick={() => viewProductDetails(product.slug)}>
               <div className="imgWrapper">
                 <img src={product.image} alt={product.name} />
                 <span className="badge badge-primary">28%</span>
@@ -202,8 +207,13 @@ const T_Shirts = () => {
                   <Button onClick={() => viewProductDetails(product.slug)}>
                     <TfiFullscreen />
                   </Button>
-                  <Button>
-                    <IoMdHeartEmpty style={{ fontSize: "20px" }} />
+                  <Button onClick={() => toggleLikeProduct(product)}>
+                    <IoMdHeartEmpty
+                      style={{
+                      fontSize: "20px",
+                      color: isLiked ? "red" : "black", // Change color if liked
+                    }}
+                    />
                   </Button>
                 </div>
               </div>
@@ -211,12 +221,12 @@ const T_Shirts = () => {
                 <h4>{product.name}</h4>
                 <span className="text-success">В наличност</span>
                 <div className="d-flex">
-                  <span className="oldPrice">${product.price + 100}.00</span>
-                  <span className="netPrice text-danger ml-2">${product.price}.00</span>
+                  <span className="oldPrice">{product.price + 100}.00 лв.</span>
+                  <span className="netPrice text-danger ml-2">{product.price}.00 лв.</span>
                 </div>
               </div>
             </div>
-          ))}
+          )})}
         </div>
       </div>
     </>

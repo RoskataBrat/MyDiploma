@@ -17,7 +17,7 @@ const FeaturedProducts = () => {
         </div>
         <div className="product-card-buttons">
           <button onClick={() => navigate("/electronics/laptops")}>За работа</button>
-          <button>Гейминг</button>
+          <button onClick={() => navigate("electronics/gaming_laptops")}>Гейминг</button>
         </div>
       </div>
 
@@ -28,8 +28,8 @@ const FeaturedProducts = () => {
           <p>За всички продукти на Adidas,Nike,Puma</p>
         </div>
         <div className="product-card-buttons">
-          <button>Мъже</button>
-          <button>Жени</button>
+          <button onClick={() => navigate("fashion/for_man")}>Мъже</button>
+          <button onClick={() => navigate("fashion/for_women")}>Жени</button>
         </div>
       </div>
 
@@ -40,8 +40,8 @@ const FeaturedProducts = () => {
           <p>Произведени от специализирани ферми</p>
         </div>
         <div className="product-card-buttons">
-          <button>Оферти на -20%</button>
-          <button>За вегетарианци</button>
+          <button onClick={() => navigate("grocery/discount")}>Оферти на -20%</button>
+          <button onClick={() => navigate("grocery/vegetarians")}>За вегетарианци</button>
         </div>
       </div>
     </section>

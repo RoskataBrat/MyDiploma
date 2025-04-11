@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/images/bacola-logo.png";
+import original_Logo from "../../assets/images/logo.png";
 import Button from "react-bootstrap/Button";
 import CountryDropdown from "../CountryDropdown";
 import { IoBagOutline } from "react-icons/io5";
@@ -9,6 +10,7 @@ import Navigation from "./Navigation";
 import { MyContext } from "../../App"; // Context for global state
 import sigma from "../../assets/images/sigmamale.jpg";
 import "../../styles/ProfileHeader.css";
+import { useSubscription } from "../../context/SubscriptionContext";
 
 const Header = () => {
   const context = useContext(MyContext);
@@ -27,6 +29,8 @@ const Header = () => {
     setProfileDropdownOpen(false);
   };
 
+  const { isSubscribed } = useSubscription();
+
   return (
     <>
       <div className="headerWrapper">
@@ -34,7 +38,7 @@ const Header = () => {
         <div className="top-strip bg-blue">
           <div className="container">
             <p className="mb-0 mt-0 text-center">
-              !!! WARNING !!! The winter season offers are available to 18.12.2024!!!
+              !!! ВНИМАНИЕ !!! Офертите за пролетния сезон ще изтекат на 27.05.2025г.!!!
             </p>
           </div>
         </div>
@@ -46,29 +50,30 @@ const Header = () => {
               {/* Logo */}
               <div className="logoWrapper d-flex align-items-center col-sm-2">
                 <Link to={"/"}>
-                  <img src={Logo} alt="Logo" />
+                  <img src={original_Logo} alt="Logo" />
                 </Link>
               </div>
 
               {/* Search, Country Selector, and Cart/Profile Section */}
-              <div className="col-sm-10 d-flex align-items-center part2">
-                {/* Country Dropdown */}
-                {context.countryList.length !== 0 && <CountryDropdown />}
-                <CountryDropdown></CountryDropdown>
+              <div className="countryDropdown col-sm-10 d-flex align-items-center part2">
                 {/* Search Box */}
                 <SearchBox />
 
                 {/* Cart and Profile Section */}
-                <div className="part3 d-flex align-items-center ml-auto">
+                <div className="part3 d-flex align-items-center">
                   {/* Liked Products */}
-                  <Link to="/liked-products" className="liked-button">
-                    <i className="fas fa-heart"></i>
-                    <span className="liked-count">{likedProducts.length}</span>
+                  <Link
+                    to="/liked-products"
+                    className="liked-button d-flex align-items-center"
+                  >
+                    <i className="fas fa-heart liked-icon"></i>
+                    <span className="liked-count d-flex align-items-center justify-content-center">
+                      {likedProducts.length}
+                    </span>
                   </Link>
 
                   {/* Cart Section */}
-                  <div className="ml-auto cartTab d-flex align-items-center">
-                    <span className="price">$3.29</span>
+                  <div className="cartTab d-flex align-items-center">
                     <div className="position-relative ml-2">
                       <Link to="/cart">
                         <Button className="circle ml-2">
@@ -78,6 +83,11 @@ const Header = () => {
                           {cartItemCount}
                         </span>
                       </Link>
+                      {isSubscribed && (
+                        <span className="discount-badge bg-success text-white ml-2 p-1 rounded">
+                          -20%
+                        </span>
+                      )}
                     </div>
                   </div>
 
@@ -108,16 +118,14 @@ const Header = () => {
                             className="btn-blue btn-round w-100"
                             onClick={handleLogout}
                           >
-                            Sign Out
+                            Излез
                           </Button>
                         </div>
                       )}
                     </div>
                   ) : (
                     <Link to="/signIn">
-                      <Button className="btn-blue btn-round ml-3">
-                        Sign In
-                      </Button>
+                      <Button className="btn-blue btn-round ml-3">Влез</Button>
                     </Link>
                   )}
                 </div>
@@ -134,5 +142,3 @@ const Header = () => {
 };
 
 export default Header;
-
-

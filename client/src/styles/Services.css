@@ -1,0 +1,69 @@
+/* Text-Image Section */
+.text-image-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin: 40px 0;
+}
+
+.text-content {
+  flex: 1;
+  padding-right: 20px;
+  text-align: left; /* Ensures text is aligned to the left */
+}
+
+.text-content h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.text-content h2 {
+  font-size: 1.5rem;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.text-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.text-content button {
+  background-color: #0066cc;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.text-content button:hover {
+  background-color: #004d99;
+}
+
+.image-content {
+  flex: 1;
+  text-align: right; /* Ensures the image container aligns correctly */
+}
+
+.image-content img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.image-content_left {
+  flex: 1;
+  text-align: left; /* Ensures the image container aligns correctly */
+}
+
+.image-content_left img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}

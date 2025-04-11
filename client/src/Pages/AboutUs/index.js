@@ -1,105 +1,119 @@
-import React from "react";
-import "../../styles/AboutUs.css"; // Import your CSS file
+import React, {useEffect} from "react";
+import "../../styles/Services.css"; // Import your CSS file
 import about from "../../assets/images/aboutUs.jpg";
 import { TbTruckDelivery } from "react-icons/tb";
 import { MdOutlineVerifiedUser } from "react-icons/md";
 import { AiOutlineGlobal } from "react-icons/ai";
+import courier from "../../assets/images/courier_order.jpg";
+import courier_ok from "../../assets/images/courier.jpg";
+import global_orders from "../../assets/images/global_ordering.jpeg";
 
 const AboutUs = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
   return (
     <div className="about-us">
       {/* Full-Width Banner Section */}
-      <div className="banner relative w-full h-72 overflow-hidden">
+      <div className="banner relative">
         <img
           src={about}
-          alt="Our Story"
-          className="banner-image w-full h-full object-cover brightness-75"
+          alt="About Us"
+          className="banner-image"
         />
-        <div className="banner-text absolute inset-0 flex justify-center items-center text-white text-4xl font-bold">
-          Нашата история
-        </div>
+        <div className="banner-text">Нашите услуги</div>
       </div>
 
-      <div className="container px-4 py-8 space-y-12">
+      <div className="container">
         {/* Mission Section */}
-        <div className="mission text-center space-y-4">
-          <h2 className="mission-title text-3xl font-bold text-gray-800">
-            КЛИЕНТЪТ Е НАЙ-ВАЖЕН
-          </h2>
-          <p className="mission-description text-gray-600 max-w-2xl mx-auto">
-            We’re a modern-day meat and seafood market on a mission to change the way people shop for and eat protein.
+        <div className="mission">
+          <h2 className="mission-title">Клиентът е винаги прав</h2>
+          <p className="mission-description">
+            Ние сме модерен онлайн магазин, посветен на това да направим пазаруването по-лесно, удобно и приятно. Нашата мисия е да предложим богат избор от стоки, бърза доставка и отлично обслужване, защото вярваме, че всеки клиент заслужава най-доброто.
           </p>
 
-          <div className="features flex flex-wrap justify-center gap-8 mt-8">
-            <div className="feature flex flex-col items-center">
-              <TbTruckDelivery size={100} color="orange" />
-              <h3 className="feature-title text-xl font-semibold mt-2">Бърза доставка</h3>
-            </div>
-            <div className="feature flex flex-col items-center">
-              <MdOutlineVerifiedUser size={100} color="green" />
-              <h3 className="feature-title text-xl font-semibold mt-2">Високо качество</h3>
-            </div>
-            <div className="feature flex flex-col items-center">
-              <AiOutlineGlobal size={100} color="darkblue" />
-              <h3 className="feature-title text-xl font-semibold mt-2">Търговия по света</h3>
-            </div>
+        </div>
+
+        <div className="text-image-section">
+          <div className="text-content">
+            <h1>Бърза доставка</h1>
+            <p> 
+            Нашата мисия е да улесним ежедневието на хората. Ние се стремим да осигурим удобство, скорост и качество при всяка поръчка. Разберете повече за нас, как работим и какво ни вдъхновява.
+            </p>
+          </div>
+          <div className="image-content">
+            <img
+              src={courier}
+              alt="Family playing and enjoying time at home"
+            />
           </div>
         </div>
 
-        {/* Text with Image and Video */}
-        <div className="text-with-image-video flex flex-col md:flex-row items-center gap-6">
-          <div className="text-content md:w-1/2 space-y-4">
-            <h3 className="text-2xl font-bold text-gray-800">
-              The Most Powerful Way to Connect with Every Audience
-            </h3>
-            <p className="text-gray-600">
-              Whether you want to motivate or train team members, sell products or services, or entertain and inform subscribers, video does it best. And Brightcove provides you with the most reliable, scalable, and secure platform to deliver it on. Since 2004, our technology has helped customers all over the world harness the incredible power of video — we’ve even won two Technology and Engineering Emmy Awards for it.
+        <div className="text-image-section">
+          <div className="text-content">
+            <h1>Високо качество</h1>
+            <p>
+              Ние вярваме, че всеки заслужава най-доброто. Затова предлагаме продукти с високо качество, които отговарят на най-високите стандарти. Открийте повече за нас, нашите ценности и стремежа ни към съвършенство.
             </p>
           </div>
-          <div className="video-content md:w-1/2">
+          <div className="image-content_left">
             <img
-              src="https://nixanbal.com/media/k2/items/cache/07e866daa207cbbb799efea1f264fd34_L.jpg"
-              alt="Video Thumbnail"
-              className="w-full rounded-lg shadow-lg object-cover"
+              src={courier_ok}
+              alt="Family playing and enjoying time at home"
+            />
+          </div>
+        </div>
+
+        <div className="text-image-section">
+          <div className="text-content">
+            <h1>Търговия по света</h1>
+            <p>
+              Стремим се да свържем хората с най-добрите продукти от цял свят. Чрез нашата глобална мрежа предлагаме качество, достъпност и разнообразие, за да направим пазаруването по-удобно и достъпно за всеки.
+            </p>
+          </div>
+          <div className="image-content">
+            <img
+              src={global_orders}
+              alt="Family playing and enjoying time at home"
             />
           </div>
         </div>
 
         {/* Team Section */}
-        <div className="team-section text-center">
-          <h2 className="subtitle text-3xl font-bold text-gray-800 mb-8">Meet Our Team</h2>
-          <div className="team-members grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="team-member text-center">
+        {/*<div className="team-section">
+          <h2 className="subtitle">Виж нашия екип</h2>
+          <div className="team-members">
+            <div className="team-member">
               <img
                 src="/path-to-image1.jpg"
-                alt="Team Member 1"
-                className="team-image w-32 h-32 mx-auto rounded-full shadow-lg object-cover"
+                alt="John Doe - CEO"
+                className="team-image"
               />
-              <h3 className="member-name text-xl font-semibold mt-4">John Doe</h3>
-              <p className="member-role text-gray-600">CEO</p>
+              <h3 className="member-name">John Doe</h3>
+              <p className="member-role">CEO</p>
             </div>
 
-            <div className="team-member text-center">
+            <div className="team-member">
               <img
                 src="/path-to-image2.jpg"
-                alt="Team Member 2"
-                className="team-image w-32 h-32 mx-auto rounded-full shadow-lg object-cover"
+                alt="Jane Smith - CTO"
+                className="team-image"
               />
-              <h3 className="member-name text-xl font-semibold mt-4">Jane Smith</h3>
-              <p className="member-role text-gray-600">CTO</p>
+              <h3 className="member-name">Jane Smith</h3>
+              <p className="member-role">CTO</p>
             </div>
 
-            <div className="team-member text-center">
+            <div className="team-member">
               <img
                 src="/path-to-image3.jpg"
-                alt="Team Member 3"
-                className="team-image w-32 h-32 mx-auto rounded-full shadow-lg object-cover"
+                alt="Alice Johnson - Project Manager"
+                className="team-image"
               />
-              <h3 className="member-name text-xl font-semibold mt-4">Alice Johnson</h3>
-              <p className="member-role text-gray-600">Project Manager</p>
+              <h3 className="member-name">Alice Johnson</h3>
+              <p className="member-role">Project Manager</p>
             </div>
           </div>
-        </div>
+        </div>*/}
       </div>
     </div>
   );

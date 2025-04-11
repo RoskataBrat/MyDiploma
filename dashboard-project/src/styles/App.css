@@ -1,24 +1,8 @@
-:root {
-  --primary-color: #3b82f6; /* Синьо за акцент */
-  --secondary-color: #f97316; /* Оранжево */
-  --bg-color: #f4f5f7; /* Светъл фон */
-  --sidebar-bg: #1e293b; /* Тъмен фон за страничната лента */
-  --card-bg: #ffffff; /* Фон за картите */
-  --text-color: #334155; /* Основен текст */
-  --text-light: #64748b; /* По-светъл текст */
-  --border-color: #e2e8f0; /* Граници */
-}
-
-body {
-  margin: 0;
-  font-family: 'Roboto', sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-}
-
+/* General App Styling */
 .app {
   display: flex;
   height: 100vh;
+  font-family: 'Roboto', sans-serif;
 }
 
 /* Sidebar Styling */
@@ -29,6 +13,7 @@ body {
   padding: 20px 0;
   display: flex;
   flex-direction: column;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar a {
@@ -40,38 +25,42 @@ body {
   font-size: 16px;
   border-radius: 5px;
   margin: 5px 0;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .sidebar a:hover {
   background: var(--primary-color);
+  color: white;
 }
 
 .sidebar a.active {
   background: var(--primary-color);
+  font-weight: bold;
+  color: white;
+  border-left: 5px solid var(--secondary-color);
 }
 
 .sidebar a span {
   margin-left: 10px;
 }
 
-/* Main Content Styling */
-main {
-  flex-grow: 1;
-  padding: 20px;
-}
-
+/* Header Styling */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+  padding: 10px 20px;
+  background: var(--card-bg);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 
 header .search-bar input {
   padding: 10px 15px;
   border: 1px solid var(--border-color);
   border-radius: 5px;
+  width: 100%;
 }
 
 header .profile {
@@ -86,6 +75,35 @@ header .profile img {
   margin-right: 10px;
 }
 
+header .toggle-theme,
+header .logout-button {
+  padding: 10px 15px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+header .toggle-theme {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+header .toggle-theme:hover {
+  background-color: #2563eb; /* Slightly darker blue */
+}
+
+header .logout-button {
+  background-color: var(--secondary-color);
+  color: white;
+  margin-left: 10px;
+}
+
+header .logout-button:hover {
+  background-color: #d97706; /* Slightly darker orange */
+}
+
 /* Dashboard Cards */
 .cards-container {
   display: grid;
@@ -96,33 +114,63 @@ header .profile img {
 .card {
   background: var(--card-bg);
   border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .card h3 {
-  margin: 0;
-  font-size: 20px;
+  margin: 10px 0;
+  font-size: 18px;
   color: var(--text-color);
 }
 
 .card p {
   color: var(--text-light);
   font-size: 14px;
+  margin-top: 5px;
 }
 
 .card .icon {
-  font-size: 30px;
+  font-size: 40px;
   margin-bottom: 10px;
   color: var(--primary-color);
+  transition: color 0.3s ease;
 }
+
+.card:hover .icon {
+  color: var(--secondary-color);
+}
+
+/* Chart Container */
+.charts-container {
+  margin-top: 20px;
+  display: flex; /* Use flexbox to keep items in a row */
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+  gap: 20px; /* Add space between items */
+}
+
+.charts-container > div {
+  flex: 1 1 300px; /* Ensure charts are responsive and minimum width is 300px */
+  max-width: 33%; /* Optional: Limit each chart to take at most one-third of the row */
+  padding: 20px;
+  background: var(--card-bg);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.charts-container h3 {
+  font-size: 18px;
+  color: var(--text-color);
+  margin-bottom: 10px;
+}
+
 
 /* Table Styling */
 table {
@@ -134,9 +182,11 @@ table {
   overflow: hidden;
 }
 
-table th, table td {
+table th,
+table td {
   padding: 15px;
   text-align: left;
+  border-bottom: 1px solid var(--border-color);
 }
 
 table th {
@@ -148,3 +198,24 @@ table tr:nth-child(even) {
   background: var(--bg-color);
 }
 
+table tr:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Dark Mode Adjustments */
+body.dark-mode {
+  --bg-color: #121212; /* Dark background */
+  --sidebar-bg: #1e293b; /* Sidebar stays dark */
+  --card-bg: #1e1e1e; /* Dark card background */
+  --text-color: #e0e0e0; /* Main text color for dark mode */
+  --text-light: #a1a1a1; /* Light text color for dark mode */
+  --border-color: #333; /* Borders for dark mode */
+}
+
+body.dark-mode .card .icon {
+  color: var(--secondary-color);
+}
+
+body.dark-mode .sidebar a:hover {
+  background: var(--secondary-color);
+}
