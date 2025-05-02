@@ -7,6 +7,7 @@ import "../../styles/Electronics.css";
 import iphone from "../../assets/images/iphone.jpg";
 import laptop from "../../assets/images/laptop.png";
 import razer from "../../assets/images/razer.jpg";
+import acer_laptop from "../../assets/images/acer_laptop.jpg";
 import samsungA54 from "../../assets/images/samsungA54.jpg";
 import wirelessMouse from "../../assets/images/wireless_mouse.jpg";
 import ProductModal from "../ProductModal";
@@ -21,12 +22,12 @@ const Electronics = () => {
   const { toggleLikeProduct, likedProducts } = useContext(MyContext); // Access context here
 
   const products = [
-    { id: 1, name: "iPhone", category: "smartphone", price: 899, image: iphone },
-    { id: 2, name: "Laptop", category: "laptop", price: 500, image: laptop },
-    { id: 3, name: "Gaming PC", category: "pc", price: 1000, image: laptop },
-    { id: 4, name: "Wireless Mouse", category: "accessories", price: 25, image: wirelessMouse },
-    { id: 5, name: "Samsung A54", category: "smartphone", price: 250, image: samsungA54 },
-    { id: 6, name: "Razer", category: "accessories", price: 50, image: razer }
+    { id: 1, name: "iPhone", category: "smartphone", slug:"iphone", price: 899, image: iphone },
+    { id: 2, name: "HP", category: "laptop", slug:"laptop_HP", price: 199, image: laptop },
+    { id: 3, name: "Acer", category: "pc", slug:"laptop_Acer", price: 1000, image: acer_laptop },
+    { id: 4, name: "Безжична мишка", category: "accessories",slug:"mouse", price: 125, image: wirelessMouse },
+    { id: 5, name: "Samsung A54", category: "smartphone",slug:"samsung-a54", price: 250, image: samsungA54 },
+    { id: 6, name: "Razer - слушалки", category: "accessories",slug:"headphones_razer", price: 50, image: razer }
   ];
 
   const handleCategoryChange = (category) => {
@@ -154,7 +155,7 @@ const Electronics = () => {
             <div key={product.id} className="item productItem2" onClick={() => viewProductDetails(product.slug)}>
               <div className="imgWrapper">
                 <img src={product.image} alt={product.name} />
-                <span className="badge badge-primary">28%</span>
+                <span className="badge badge-primary">10%</span>
                 <div className="actions">
                   <Button onClick={() => viewProductDetails(product.id)}>
                     <TfiFullscreen />

@@ -57,6 +57,7 @@ import pola_puma from "../../assets/images/pola_women.jpg";
 import nike_shoes_women from "../../assets/images/nike_shoes_women.jpg";
 import elek_carly from "../../assets/images/elek_women.jpg";
 import roklq_women from "../../assets/images/roklq_women.webp";
+import razer from "../../assets/images/razer.jpg";
 
 const products = [
     {
@@ -89,9 +90,9 @@ const products = [
        
     {
         id: 4,
-        slug: "wireless mouse",
+        slug: "mouse",
         name: "Wireless Mouse",
-        price: 49.00,
+        price: 125.00,
         description: "Latest iPhone with cutting-edge technology.",
         image: wirelessMouse,
         stock: true
@@ -105,12 +106,21 @@ const products = [
         image: samsungA54,
         stock: true
     },
+    {
+        id: 6,
+        slug: "headphones_razer",
+        name: "Razer - headphones",
+        price: 50.00,
+        description: "Latest iPhone with cutting-edge technology.",
+        image:razer,
+        stock: true
+    },
 
 
     /*!!! Smartphones !!!*/
 
     
-        { id: 1, name: "iPhone", brand: "iPhone", price: 899.00, slug: "iphone", image: iphone, description: "iPhone детайли", stock: true },
+        { id: 1, name: "iPhone", brand: "iPhone", price: 899.00, slug: "iphone", image: iphone, description: "iPhone детайли", stock: true, },
         { id: 2, name: "Samsung A54", brand: "Samsung", price: 250.00, slug: "samsung-a54", image: samsungA54, description: "Samsung детайли", stock: true },
         { id: 3, name: "Xiaomi Redmi Note", brand: "Xiaomi", price: 250.00, slug: "xiaomi-redmi-note", image: redmiA3, description: "Xiaomi детайли", stock: true },
         { id: 4, name: "Huawei Mate 40", brand: "Huawei", price: 250.00, slug: "huawei-mate-40", image: huawei_mate_40, description: "Huawei детайли", stock: true },
@@ -238,7 +248,7 @@ const products = [
         slug: "cklein",
         name: "Calvin Klein T-Shirt",
         category:"tshirt",
-        price: 39.00,
+        price: 99.00,
         description: "Елегантна и минималистична тениска на Calvin Klein, изработена от висококачествен памук или смес от памук и еластан. Семпъл дизайн с логото 'Calvin Klein' на гърдите, подходящ за ежедневна или елегантна визия.",
         image: cklein,
         stock: true
@@ -248,7 +258,7 @@ const products = [
         slug: "gucci",
         name: "GUCCI T-Shirt",
         category:"tshirt",
-        price: 39.00,
+        price: 45.00,
         description: "Луксозна тениска на Gucci с уникален дизайн, изработена от висококачествен органичен памук. Отличава се с емблематични елементи като логото 'GG' или принтове, подходяща за модни изявления.",
         image: tshirt_gucci,
         stock: true
@@ -303,7 +313,7 @@ const products = [
         slug: "nikeG",
         name: "Nike Gold Shoes",
         category:"shoes",
-        price: 39.00,
+        price: 79.00,
         description: "Powerful laptop for work and entertainment.",
         image: nikeG,
         stock:true
@@ -313,7 +323,7 @@ const products = [
         slug: "nikeJ",
         name: "Nike Jordan Shoes",
         category:"shoes",
-        price: 39.00,
+        price: 79.00,
         description: "Powerful laptop for work and entertainment.",
         image: nikeJ,
         stock:true

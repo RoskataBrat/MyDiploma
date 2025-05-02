@@ -24,8 +24,8 @@ const Fashion = () => {
   const products = [
     { id: 1, name: "Тениска - Калвин Клейн  ", brand: "Калвин Клейн",category:"tshirts", slug: "cklein", price: 99, image: tshirt_cklein },
     { id: 2, name: "Тениска - Гучи", brand: "Gucci",category:"tshirts", slug: "gucci", price: 45.0, image: tshirt_gucci },
-    { id: 3, name: "Найк", brand: "Nike",category:"shoes", slug: "nikeG", price: 79.99, image: shoes_nike_gold },
-    { id: 4, name: "Найк-Джордан", brand: "Nike",category:"shoes", slug: "nikeJ", price: 79.99, image: shoes_jordan },
+    { id: 3, name: "Найк", brand: "Nike",category:"shoes", slug: "nikeG", price: 79.0, image: shoes_nike_gold },
+    { id: 4, name: "Найк-Джордан", brand: "Nike",category:"shoes", slug: "nikeJ", price: 79.0, image: shoes_jordan },
     { id: 5, name: "Флексит - Шапка", brand: "Флексит",category:"hats", price: 29.0, slug: "hatFlexit", image: hat_flexit_acient },
     { id: 6, name: "Ню Йорк - Шапка", brand: "Ню Йорк",category:"hats", price: 29.0, slug: "hatNewYork", image: hat_newYork },
   ];
@@ -165,7 +165,7 @@ const Fashion = () => {
                 <img src={product.image} alt={product.name} />
                 <span className="badge badge-primary">28%</span>
                 <div className="actions">
-                  <Button onClick={() => viewProductDetails(product.slug)}>
+                  <Button onClick={() => viewProductDetails(product.id)}>
                     <TfiFullscreen />
                   </Button>
                  <Button onClick={() => toggleLikeProduct(product)}>

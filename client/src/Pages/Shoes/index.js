@@ -21,12 +21,12 @@ const Shoes = () => {
 
   const productsPerPage = 6; // Number of products to display per page
   const products = [
-    { id: 1, name: "Найк", brand: "Nike", slug: "nikeG", price: 800, image: shoes_nike_gold },
-    { id: 2, name: "Найк", brand: "Nike", slug: "nikeG", price: 800, image: shoes_nike_gold },
-    { id: 3, name: "Найк", brand: "Nike", slug: "nikeG", price: 800, image: shoes_nike_gold },
-    { id: 4, name: "Найк-Джордан", brand: "Nike", slug: "nikeJ", price: 800, image: shoes_jordan },
-    { id: 5, name: "Найк-Джордан", brand: "Nike", slug: "nikeJ", price: 800, image: shoes_jordan },
-    { id: 6, name: "Найк-Джордан", brand: "Nike", slug: "nikeJ", price: 800, image: shoes_jordan },
+    { id: 1, name: "Найк", brand: "Nike", slug: "nikeG", price: 79.0, image: shoes_nike_gold },
+    { id: 2, name: "Найк", brand: "Nike", slug: "nikeG", price: 79.0, image: shoes_nike_gold },
+    { id: 3, name: "Найк", brand: "Nike", slug: "nikeG", price: 79.0, image: shoes_nike_gold },
+    { id: 4, name: "Найк-Джордан", brand: "Nike", slug: "nikeJ", price: 79.0, image: shoes_jordan },
+    { id: 5, name: "Найк-Джордан", brand: "Nike", slug: "nikeJ", price: 79.0, image: shoes_jordan },
+    { id: 6, name: "Найк-Джордан", brand: "Nike", slug: "nikeJ", price: 79.0, image: shoes_jordan },
     // Add more products as needed
   ];
 
@@ -185,7 +185,7 @@ const Shoes = () => {
     <div key={product.id} className="item productItem2" onClick={() => viewProductDetails(product.slug)}>
       <div className="imgWrapper">
         <img src={product.image} alt={product.name} />
-        <span className="badge badge-primary">28%</span>
+        <span className="badge badge-primary">50%</span>
         <div className="actions">
           <Button onClick={() => viewProductDetails(product.slug)}>
             <TfiFullscreen />

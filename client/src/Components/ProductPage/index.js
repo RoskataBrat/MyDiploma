@@ -235,9 +235,9 @@ const ProductPage = ({ cart, setCart }) => {
                                     className={isLiked ? "liked-button active" : "liked-button"}>
                                     <FaRegHeart />{isLiked ? "Liked" : "Like"}
                                 </Button>
-                                <Button className="btn-blue btn-lg btn-big btn-circle ml-3">
+                                {!<Button className="btn-blue btn-lg btn-big btn-circle ml-3">
                                     <MdOutlineCompareArrows />
-                                </Button>
+                                </Button>}
                             </div>
                             {!<div className="product-page-container">
 
