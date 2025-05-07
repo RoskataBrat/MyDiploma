@@ -1,0 +1,350 @@
+/* General Cart Container */
+#cart {
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping for smaller screens */
+  gap: 20px;
+}
+
+/* Product List Section */
+#cart .products {
+  flex: 3; /* Takes more space on wider screens */
+  min-width: 60%; /* Ensures it shrinks on smaller screens */
+}
+
+/* Cart Header */
+#cart h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+#cart p {
+  font-size: 16px;
+  color: #555;
+}
+
+/* Product Row */
+.product {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+/* Product Name */
+.product p {
+  flex: 2;
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Product Image Placeholder */
+.product img {
+  width: 60px;
+  height: auto;
+  margin-right: 10px;
+}
+
+/* Unit Price */
+.unit-price {
+  flex: 1;
+  text-align: center;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Quantity Controls */
+.quantity {
+  width: 50px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.decrease,
+.increase {
+  padding: 5px 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.decrease:hover,
+.increase:hover {
+  background-color: #ddd;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex: 1;
+  justify-content: center;
+}
+
+/* Subtotal */
+.subtotal {
+  flex: 1;
+  text-align: center;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Cart Totals Section */
+#cart-totals {
+  flex: 1; /* Takes less space on wider screens */
+  min-width: 300px; /* Minimum width */
+  max-width: 300px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: red;
+  text-align: left;
+  margin-left: auto; /* Pushes it to the right side */
+}
+
+#cart-totals h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+#cart-totals p {
+  font-size: 16px;
+  color: #333;
+  margin: 5px 0;
+}
+
+#cart-totals span {
+  font-weight: bold;
+  color: red;
+}
+
+/* Add to Cart Button */
+#cart-totals button {
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 16px;
+  background-color: #0026ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#cart-totals button:hover {
+  background-color: #001db3;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  #cart {
+    flex-direction: column; /* Stacks the product list and cart totals */
+  }
+
+  #cart-totals {
+    margin-left: 0;
+    margin-top: 20px;
+    width: 100%; /* Take full width on smaller screens */
+  }
+}
+
+/* Remove Button */
+.remove {
+  padding: 5px 10px;
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.remove:hover {
+  background-color: #cc0000;
+}
+
+/* Confirmation Dialog */
+#confirmation-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  text-align: center;
+  z-index: 1000;
+}
+
+#confirmation-dialog p {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+#confirmation-dialog .confirm-remove,
+#confirmation-dialog .cancel-remove {
+  padding: 10px 15px;
+  font-size: 16px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#confirmation-dialog .confirm-remove {
+  background-color: #28a745;
+  color: white;
+}
+
+#confirmation-dialog .confirm-remove:hover {
+  background-color: #218838;
+}
+
+#confirmation-dialog .cancel-remove {
+  background-color: #dc3545;
+  color: white;
+}
+
+#confirmation-dialog .cancel-remove:hover {
+  background-color: #c82333;
+}
+
+/* Overlay for Modal */
+#confirmation-dialog::backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+}
+
+/* General Page Layout */
+#cart {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.products {
+  width: 60%;
+}
+
+.product {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.product img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+}
+
+.unit-price,
+.subtotal {
+  font-weight: bold;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+}
+
+.quantity {
+  width: 40px;
+  text-align: center;
+}
+
+#cart-totals {
+  width: 100%;
+  max-width: 200px; /* Limit the maximum width */
+  margin: 20px auto; /* Center the element */
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #003166; /* Brighter background for contrast */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center-align text */
+}
+
+#cart-totals h3 {
+  margin-bottom: 20px;
+  font-size: 20px; /* Slightly larger font size */
+  color: white; /* Darker color for text */
+}
+
+#cart-totals .price {
+  margin: 10px 0;
+  font-size: 16px;
+  color: rgb(231, 192, 0); /* Muted text color */
+}
+
+#cart-totals p span {
+  font-weight: bold; /* Highlight the total */
+  color: #04ac26; /* Match button color */
+}
+
+#cart-totals button,
+.checkout-button {
+  display: block;
+  width: 100%;
+  max-width: 300px; /* Limit button width */
+  padding: 12px; /* Add more padding for larger buttons */
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 50px;
+  text-align: center; /* Center the button text */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#cart-totals button:hover,
+.checkout-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px); /* Slight upward movement on hover */
+}
+
+#cart-totals button:active,
+.checkout-button:active {
+  background-color: #004080;
+  transform: translateY(0); /* Reset transform on click */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #cart-totals {
+    padding: 15px;
+  }
+
+  #cart-totals h3 {
+    font-size: 18px;
+  }
+
+  #cart-totals p {
+    font-size: 14px;
+  }
+
+  #cart-totals button,
+  .checkout-button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}

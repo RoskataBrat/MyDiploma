@@ -1,0 +1,124 @@
+.header-model {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Initially covers the entire viewport */
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.8); /* Darker background */
+    color: white;
+    text-align: center;
+    z-index: 10;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: height 1s ease, padding 1s ease, background 1s ease; /* Gradual transition for height, padding, and background */
+  }
+  
+  .header-model.shrink {
+    height: 80px; /* Shrink to a smaller height */
+    padding: 0 1.5rem; /* Adjust padding */
+    background: rgba(0, 0, 0, 0.6); /* Slightly lighter after shrinking */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.4);
+    justify-content: flex-start; /* Align content to the left */
+    align-items: center;
+  }
+  
+  .wrapper-model {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding-top: 100px; /* Account for the shrunken header */
+    background: #f4f4f9;
+  }
+  
+  .container-model {
+    display: flex;
+    margin-top: 2rem;
+  }
+  
+  input {
+    display: none;
+  }
+  
+  .card {
+    width: 80px;
+    border-radius: 2rem;
+    background-size: cover;
+    cursor: pointer;
+    overflow: hidden;
+    margin: 0 10px;
+    display: flex;
+    align-items: flex-end;
+    transition: 0.6s cubic-bezier(0.28, -0.03, 0, 0.99);
+    box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.8);
+  }
+  
+  .card > .row {
+    color: white;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  
+  .card > .row > .icon {
+    background: #223;
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+  }
+  
+  .card > .row > .description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    height: 80px;
+    width: 520px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.3s ease;
+  }
+  
+  .description p {
+    color: #b0b0ba;
+    padding-top: 5px;
+  }
+  
+  .description h4 {
+    text-transform: uppercase;
+  }
+  
+  input:checked + label {
+    width: 600px;
+  }
+  
+  input:checked + label .description {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+  
+  .card[for="c1"] {
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e7/Everest_North_Face_toward_Base_Camp_Tibet_Luca_Galuzzi_2006.jpg');
+  }
+  
+  .card[for="c2"] {
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/4/47/New_york_times_square-terabass.jpg');
+  }
+  
+  .card[for="c3"] {
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/d/d7/Earth_Western_Hemisphere.jpg');
+  }
+  
+  .card[for="c4"] {
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/a/a1/Andromeda_Galaxy_%28with_h-alpha%29.jpg');
+  }
+  

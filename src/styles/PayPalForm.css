@@ -1,0 +1,39 @@
+.paypal-form-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 2rem;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .paypal-form-container h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .paypal-form-container .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .paypal-form-container input {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  .paypal-submit-btn {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #0070ba;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .paypal-submit-btn:hover {
+    background-color: #005ea6;
+  }
+  
