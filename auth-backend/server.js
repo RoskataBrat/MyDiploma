@@ -46,7 +46,7 @@ const filePath = path.join(__dirname, "../auth-backend/data/ProductData");
 
 // Дефинирайте рут за главния маршрут
 app.get('/', (req, res) => {
-  res.send('Сървърът работи успешно!');
+  res.send('Backend is running!');
 });
 
 // Add a product (File-based)
