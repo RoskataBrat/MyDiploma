@@ -1,0 +1,15 @@
+{
+  "projectId": "prj_mGMwXysFyrjyuUCRL13co0LYUHpU",
+  "orgId": "team_QIX6PWp05Kvr2rnk30x3kANc",
+  "settings": {
+    "createdAt": 1746628207913,
+    "framework": null,
+    "devCommand": null,
+    "installCommand": null,
+    "buildCommand": null,
+    "outputDirectory": null,
+    "rootDirectory": "auth-backend",
+    "directoryListing": false,
+    "nodeVersion": "22.x"
+  }
+}

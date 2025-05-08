@@ -51,7 +51,6 @@ import SportGoodsWomen from "./Pages/SportGoodsWomen";
 import FoodGoods from "./Pages/FoodGoods";
 import FoodGoodsVegetarians from "./Pages/FoodGoodsVegetarians";
 import OrderSuccess from "./Pages/OrderSuccess";
-import { response } from "express";
 {/*import PayPalForm from "./Pages/PayPalForm/PayPalForm";*/}
 
 // Create context for global state management
@@ -66,19 +65,10 @@ function App() {
   const [user, setUser] = useState(null);
   const [isLogin, setIsLogin] = useState(false);
   const [cart, setCart] = useState([]);
-  const [likedProducts, setLikedProducts, setProduct] = useState([]);
+  const [likedProducts, setLikedProducts] = useState([]);
   
 
   useEffect(() => {
-    axios
-        .get('${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}')
-        .then((response) => {
-            setProduct(response.data.data);
-        })
-        .catch((error) =>{
-            console.log(error);
-        
-        });
   }, []);
 
   const addToCart = (productId) => {
