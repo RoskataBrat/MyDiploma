@@ -49,6 +49,11 @@ app.get('/', (req, res) => {
   res.send('Backend is running!');
 });
 
+// Middleware, routes, etc.
+app.get('/api/test', (req, res) => {
+  res.json({ message: 'API is working!' });
+});
+
 // Add a product (File-based)
 app.post("/add-product", (req, res) => {
   const newProduct = req.body;
