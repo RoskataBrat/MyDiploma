@@ -71,6 +71,14 @@ function App() {
   useEffect(() => {
   }, []);
 
+  axios.defaults.withCredentials = true;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios.post('https://my-diploma-backend.vercel.app')
+    .then(result => console.log(result))
+    .catch(err => console.log(err))
+  }
+
   const addToCart = (productId) => {
     const productToAdd = products.find((product) => product.id === productId);
 

@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 app.use(express.json());
 app.use(
   cors({
-    origin: ["http://localhost:3000", "http://localhost:3001"], // React origins
+    origin: ["http://localhost:3000", "http://localhost:3001", "https://my-diploma-frontend-part.vercel.app"], // React origins
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
     credentials: true,
   })
@@ -446,4 +446,4 @@ app.post("/test", async (req, res) => {
 
 // Start the server
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+app.listen(PORT, () => {console.log(`Server running on http://localhost:${PORT}`)});
