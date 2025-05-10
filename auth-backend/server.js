@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 app.use(express.json());
 app.use(
   cors({
-    origin: ["http://localhost:3000", "http://localhost:3001", "https://my-diploma-frontend-part.vercel.app"], // React origins
+    origin: ["http://localhost:3000", "http://localhost:3001"], // React origins
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
     credentials: true,
   })
