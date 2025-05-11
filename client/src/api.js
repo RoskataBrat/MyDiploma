@@ -1,13 +1,14 @@
 import axios from "axios";
 
-const API_BASE_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
+const apiBaseUrl = process.env.REACT_APP_BACKEND_URL || process.env.NEXT_PUBLIC_BACKEND_URL;
 
-export const fetchProducts = async () => {
-  const response = await fetch(`${API_BASE_URL}/api/products`);
-  if (!response.ok) {
-    throw new Error("Failed to fetch products");
+export const signIn = async (data) => {
+  try {
+    const response = await axios.post(`${apiBaseUrl}/api/auth/signin`, data);
+    return response.data;
+  } catch (error) {
+    throw error;
   }
-  return response.json();
 };
 
 
