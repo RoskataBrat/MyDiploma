@@ -7,7 +7,6 @@ import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "@coreui/coreui/dist/css/coreui.min.css";
 
-// Import components and pages
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import Home from "./Pages/Home";
@@ -43,7 +42,7 @@ import Gagets from "./Pages/Gagets";
 import Cases from "./Pages/Cases";
 import ProductsPage from "./Components/ProductsPage";
 import GamingLaptops from "./Pages/GamingLaptops";
-import Services from "./Pages/Services";
+import Services from "./Pages/Servises";
 import Payment from "./Pages/Payment";
 import ProblemPayment from "./Pages/ProblemPayment";
 import Q_and_A from "./Pages/Q&A";
@@ -52,6 +51,7 @@ import SportGoodsWomen from "./Pages/SportGoodsWomen";
 import FoodGoods from "./Pages/FoodGoods";
 import FoodGoodsVegetarians from "./Pages/FoodGoodsVegetarians";
 import OrderSuccess from "./Pages/OrderSuccess";
+{/*import PayPalForm from "./Pages/PayPalForm/PayPalForm";*/}
 
 // Create context for global state management
 export const MyContext = createContext();
@@ -60,27 +60,16 @@ function App() {
   const [countryList, setCountryList] = useState([]);
   const [selectedCountry, setselectedCountry] = useState("");
   const [isOpenProductModal, setisOpenProductModal] = useState(false);
+  
   const [isHeaderFooterShow, setisHeaderFooterShow] = useState(true);
   const [user, setUser] = useState(null);
   const [isLogin, setIsLogin] = useState(false);
   const [cart, setCart] = useState([]);
   const [likedProducts, setLikedProducts] = useState([]);
-
-  // Use environment variables to set API base URL
-  const apiBaseUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
+  
 
   useEffect(() => {
-    // Example: Fetch countries from the backend
-    const fetchCountries = async () => {
-      try {
-        const response = await axios.get(`${apiBaseUrl}/api/countries`);
-        setCountryList(response.data);
-      } catch (error) {
-        console.error("Error fetching countries:", error);
-      }
-    };
-    fetchCountries();
-  }, [apiBaseUrl]);
+  }, []);
 
   const addToCart = (productId) => {
     const productToAdd = products.find((product) => product.id === productId);
@@ -131,17 +120,17 @@ function App() {
     setLikedProducts,
     toggleLikeProduct,
     user,
-    setUser,
+    setUser
   };
 
   return (
     <MyContext.Provider value={values}>
       <Router>
-        {isHeaderFooterShow && <Header />}
+        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cat/:id" element={<Listing />} />
-          <Route path="/products" element={<ProductsPage />} />
+          <Route path="/products" element={<ProductsPage></ProductsPage>}></Route>
           <Route
             path="/product/:productSlug"
             element={<ProductPage cart={cart} setCart={setCart} />}
@@ -162,37 +151,41 @@ function App() {
           <Route path="/electronics" element={<Electronics />} />
           <Route path="/electronics/smartphones" element={<Smartphones />} />
           <Route path="/electronics/laptops" element={<Laptops />} />
-          <Route path="/electronics/gaming_laptops" element={<GamingLaptops />} />
+          <Route path="/electronics/gaming_laptops" element={<GamingLaptops></GamingLaptops>}></Route>
           <Route path="/electronics/pc" element={<PC />} />
           <Route path="/fashion" element={<Fashion />} />
           <Route path="/fashion/t-shirts" element={<T_Shirts />} />
           <Route path="/fashion/shoes" element={<Shoes />} />
           <Route path="/fashion/hats" element={<Hats />} />
-          <Route path="/fashion/for_man" element={<SportGoodsMan />} />
-          <Route path="/fashion/for_women" element={<SportGoodsWomen />} />
+          <Route path="/fashion/for_man" element={<SportGoodsMan></SportGoodsMan>}></Route>
+          <Route path="/fashion/for_women" element={<SportGoodsWomen></SportGoodsWomen>}></Route>
           <Route path="/bakery" element={<Bakery />} />
-          <Route path="/bakery/cakes" element={<Cakes />} />
-          <Route path="/bakery/sweets" element={<Sweets />} />
-          <Route path="/bakery/bread" element={<Bread />} />
+          <Route path="/bakery/cakes" element={<Cakes></Cakes>}></Route>
+          <Route path="/bakery/sweets" element={<Sweets></Sweets>}></Route>
+          <Route path="/bakery/bread" element={<Bread></Bread>}></Route>
           <Route path="/grocery" element={<Grocery />} />
-          <Route path="/grocery/vegetables" element={<Vegetables />} />
-          <Route path="/grocery/fruits" element={<Fruits />} />
-          <Route path="/grocery/snacks" element={<CornyFoods />} />
-          <Route path="/grocery/discount" element={<FoodGoods />} />
-          <Route path="/grocery/vegetarians" element={<FoodGoodsVegetarians />} />
-          <Route path="/mobiles" element={<Mobiles />} />
-          <Route path="/mobiles/accessories" element={<Accessories />} />
-          <Route path="/mobiles/gagets" element={<Gagets />} />
-          <Route path="/mobiles/cases" element={<Cases />} />
-          <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/payment" element={<Payment />} />
-          <Route path="/problem_payment" element={<ProblemPayment />} />
-          <Route path="/q&a" element={<Q_and_A />} />
-          <Route path="/liked-products" element={<LikedProducts />} />
-          <Route path="/order-success" element={<OrderSuccess />} />
+          <Route path="/grocery/vegetables" element={<Vegetables></Vegetables>}></Route>
+          <Route path="/grocery/fruits" element={<Fruits></Fruits>}></Route>
+          <Route path="/grocery/snacks" element={<CornyFoods></CornyFoods>}></Route>
+          <Route path="/grocery/discount" element={<FoodGoods></FoodGoods>}></Route>
+          <Route path="/grocery/vegetarians" element={<FoodGoodsVegetarians></FoodGoodsVegetarians>}></Route>
+          <Route path="/mobiles" element={<Mobiles></Mobiles>} />
+          <Route path="/mobiles/accessories" element={<Accessories></Accessories>} />
+          <Route path="/mobiles/gagets" element={<Gagets></Gagets>} />
+          <Route path="/mobiles/cases" element={<Cases></Cases>} />
+          <Route path="/about-us" element={<AboutUs></AboutUs>} />
+          <Route path="/services" element={<Services></Services>}></Route>
+          <Route path="/payment" element={<Payment></Payment>}></Route>
+          <Route path="/problem_payment" element={<ProblemPayment></ProblemPayment>}></Route>
+          <Route path="/q&a" element={<Q_and_A></Q_and_A>}></Route>
+          <Route
+            path="/liked-products"
+            element={<LikedProducts />}
+          />
+          <Route path="/order-success" element={<OrderSuccess></OrderSuccess>}></Route>
+          {/*<Route path="/paypal-payment" element={<PayPalForm />} />*/}
         </Routes>
-        {isHeaderFooterShow && <Footer />}
+        <Footer />
         {isOpenProductModal && <ProductModal addToCart={addToCart} />}
       </Router>
     </MyContext.Provider>

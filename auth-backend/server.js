@@ -17,13 +17,12 @@ app.use(express.json());
 app.use(
   cors({
     origin: process.env.NODE_ENV === "production"
-      ? "https://my-diploma-frontend-part.vercel.app" // Your Vercel frontend URL
-      : ["http://localhost:3000", "http://localhost:3001"], // Local development URLs
+      ? "https://my-diploma-frontend-part.vercel.app" // Vercel frontend URL in production
+      : ["http://localhost:3000", "http://localhost:3001"], // Local development
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
     credentials: true,
   })
 );
-
 
 // MongoDB Connection
 const MONGO_URI = process.env.MONGO_URI;
