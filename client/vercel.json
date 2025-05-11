@@ -1,5 +1,15 @@
 {
-   "rewrites": [{"source": "/(.*)", "destination": "/client/build/index.html"}]
+  "version": 2,
+  "builds": [
+    {
+      "src": "next.config.js",
+      "use": "@vercel/next"
+    }
+  ],
+  "env": {
+    "NEXT_PUBLIC_API_URL": "https://my-diploma-backend.vercel.app"
   }
+}
+
   
   

@@ -16,11 +16,14 @@ app.use(bodyParser.json());
 app.use(express.json());
 app.use(
   cors({
-    origin: ["http://localhost:3000", "http://localhost:3001"], // React origins
+    origin: process.env.NODE_ENV === "production"
+      ? "https://my-diploma-frontend-part.vercel.app" // Your Vercel frontend URL
+      : ["http://localhost:3000", "http://localhost:3001"], // Local development URLs
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
     credentials: true,
   })
 );
+
 
 // MongoDB Connection
 const MONGO_URI = process.env.MONGO_URI;
@@ -446,4 +449,19 @@ app.post("/test", async (req, res) => {
 
 // Start the server
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {console.log(`Server running on http://localhost:${PORT}`)});
+app.listen(PORT, () => {
+  console.log(
+    `Server running at ${
+      process.env.NODE_ENV === "production"
+        ? "https://my-diploma-backend.vercel.app"
+        : `http://localhost:${PORT}`
+    }`
+  );
+  console.log(
+    `Frontend accessible at ${
+      process.env.NODE_ENV === "production"
+        ? "https://my-diploma-frontend-part.vercel.app"
+        : "http://localhost:3000"
+    }`
+  );
+});
