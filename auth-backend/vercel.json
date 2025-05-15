@@ -1,12 +1,14 @@
 
 {
   "version": 2,
-  "buildCommand": false,
-  "outputDirectory": ".",
   "builds": [
     {
       "src": "server.js",
-      "use": "@vercel/node"
+      "use": "@vercel/node",
+      "config": {
+        "buildCommand": "echo \"Build step complete\"",
+        "outputDirectory": "."
+      }
     }
   ],
   "routes": [
