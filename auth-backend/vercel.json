@@ -1,14 +1,11 @@
-
 {
   "version": 2,
+  "buildCommand": "mkdir -p build && echo placeholder > build/index.html",
+  "outputDirectory": "build",
   "builds": [
     {
       "src": "server.js",
-      "use": "@vercel/node",
-      "config": {
-        "buildCommand": "echo \"Build step complete\"",
-        "outputDirectory": "."
-      }
+      "use": "@vercel/node"
     }
   ],
   "routes": [
