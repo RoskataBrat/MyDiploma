@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(cors());
 
 // MongoDB Connection
-mongoose.connect("mongodb://localhost:27017/auth-demo", {
+mongoose.connect("mongodb+srv://test:Test123@cluster0.ns3d5.mongodb.net/new_ecommerce", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }).then(() => console.log("MongoDB connected"))

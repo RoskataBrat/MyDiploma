@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.json());
 
 // Connect to MongoDB
-mongoose.connect("mongodb://localhost:27017/ecommerce", {
+mongoose.connect("mongodb+srv://test:Test123@cluster0.ns3d5.mongodb.net/new_ecommerce", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
