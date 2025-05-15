@@ -16,7 +16,7 @@ const Subscribe = () => {
     setError(false);
 
     try {
-      const response = await axios.post("http://localhost:5000/api/subscribe", { email });
+      const response = await axios.post("https://my-diploma-backend.vercel.app/api/subscribe", { email });
 
       if (response.status === 200) {
         setIsSuccess(true);

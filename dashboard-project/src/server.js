@@ -91,6 +91,6 @@ app.delete("/orders/:id", verifyAdminToken, async (req, res) => {
 });
 
 // Start the server
-app.listen(5000, () => {
+app.listen( () => {
   console.log("Server is running on http://localhost:5000");
 });

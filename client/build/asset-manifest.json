@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.ecba10cf.css",
-    "main.js": "/static/js/main.0652dbd4.js",
+    "main.js": "/static/js/main.4ebd1dfe.js",
     "static/media/pc_asus.jpg": "/static/media/pc_asus.8d9a346fef659a3f47fa.jpg",
     "static/media/dynki.jpg": "/static/media/dynki.d6b6c7bca055d8f59569.jpg",
     "static/media/courier_order.jpg": "/static/media/courier_order.cbabe6bb5aec4ca3898f.jpg",
@@ -95,10 +95,10 @@
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/index.html",
     "main.ecba10cf.css.map": "/static/css/main.ecba10cf.css.map",
-    "main.0652dbd4.js.map": "/static/js/main.0652dbd4.js.map"
+    "main.4ebd1dfe.js.map": "/static/js/main.4ebd1dfe.js.map"
   },
   "entrypoints": [
     "static/css/main.ecba10cf.css",
-    "static/js/main.0652dbd4.js"
+    "static/js/main.4ebd1dfe.js"
   ]
 }

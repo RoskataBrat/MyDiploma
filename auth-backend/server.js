@@ -14,15 +14,27 @@ const app = express();
 // Middleware
 app.use(bodyParser.json());
 app.use(express.json());
+
+const allowedOrigins = [
+  "http://localhost:3000", // за разработка
+  "https://my-diploma-frontend-part.vercel.app", // за продукция
+  "http://localhost:3001"
+];
+
 app.use(
   cors({
-    origin: process.env.NODE_ENV === "production"
-      ? "https://my-diploma-frontend-part.vercel.app" // Vercel frontend URL in production
-      : ["http://localhost:3000", "http://localhost:3001"], // Local development
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error(`CORS не позволява достъп от: ${origin}`));
+      }
+    },
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
     credentials: true,
   })
 );
+
 
 // MongoDB Connection
 const MONGO_URI = process.env.MONGO_URI;
@@ -43,6 +55,10 @@ const Rating = require("./models/Rating");
 
 // File Path for product data (if needed for file-based handling)
 const filePath = path.join(__dirname, "../auth-backend/data/ProductData");
+
+const authRoutes = require('./routes/authRoutes'); 
+
+app.use('/api/auth', authRoutes);
 
 // === Product Routes ===
 
@@ -194,7 +210,7 @@ app.post("/api/auth/signup", async (req, res) => {
 });
 
 
-app.post("/api/auth/signin", async (req, res) => {
+app.post("/auth/signin", async (req, res) => {
   const { email, password } = req.body;
 
   if (!email || !password) {
@@ -227,8 +243,8 @@ app.post("/api/auth/signin", async (req, res) => {
       user: { id: user._id, email: user.email, isAdmin },
     });
   } catch (error) {
-    console.error("Error during signin:", error.message);
-    res.status(500).json({ message: "Internal server error" });
+    console.error("Error during signin:", error);
+    res.status(500).json({ message: "Internal server error" + error.message });
   }
 });
 
@@ -240,7 +256,7 @@ app.post("/api/auth/logout", (req, res) => {
     
     res.status(200).json({
       message: "Logged out successfully",
-      redirect: "http://localhost:3000", // Redirect URL
+      redirect: "http://localhost:5000", // Redirect URL
     });
   } catch (error) {
     console.error("Error during logout:", error.message);
@@ -445,22 +461,18 @@ app.post("/test", async (req, res) => {
 });
 
 
-
 // Start the server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(
-    `Server running at ${
-      process.env.NODE_ENV === "production"
-        ? "https://my-diploma-backend.vercel.app"
-        : `http://localhost:${PORT}`
-    }`
-  );
-  console.log(
-    `Frontend accessible at ${
-      process.env.NODE_ENV === "production"
-        ? "https://my-diploma-frontend-part.vercel.app"
-        : "http://localhost:3000"
-    }`
-  );
+  const backendURL =
+    process.env.NODE_ENV === "production"
+      ? "https://my-diploma-backend.vercel.app"
+      : `http://localhost:${PORT}`;
+  const frontendURL =
+    process.env.NODE_ENV === "production"
+      ? "https://my-diploma-frontend-part.vercel.app"
+      : "http://localhost:3000";
+
+  console.log(`Server running at ${backendURL}`);
+  console.log(`Frontend accessible at ${frontendURL}`);
 });

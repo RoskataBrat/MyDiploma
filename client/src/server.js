@@ -46,7 +46,7 @@ app.post("/api/signup", async (req, res) => {
     }
 });
 
-app.post("/api/signin", async (req, res) => {
+app.post("/signin", async (req, res) => {
     const { email, password } = req.body;
     console.log("Request received:", req.body);
 
@@ -84,5 +84,5 @@ app.post("/api/signin", async (req, res) => {
 
 // Start Server
 app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`Server running on http://localhost:5000`);
 });

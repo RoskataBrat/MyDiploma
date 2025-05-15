@@ -14,7 +14,7 @@ const Products = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/products");
+      const response = await axios.get("https://my-diploma-backend.vercel.app/products");
       setProducts(response.data);
     } catch (error) {
       console.error("Error fetching products:", error);
@@ -30,9 +30,9 @@ const Products = () => {
 
     try {
       if (editingProduct) {
-        await axios.put(`http://localhost:5000/products/${editingProduct._id}`, formData);
+        await axios.put(`https://my-diploma-backend.vercel.app/products/${editingProduct._id}`, formData);
       } else {
-        await axios.post("http://localhost:5000/products", formData);
+        await axios.post("https://my-diploma-backend.vercel.app/products", formData);
       }
 
       setFormData({ name: "", category: "", price: "", stock: "" });
@@ -45,7 +45,7 @@ const Products = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/products/${id}`);
+      await axios.delete(`https://my-diploma-backend.vercel.app/products/${id}`);
       fetchProducts();
     } catch (error) {
       console.error("Error deleting product:", error);

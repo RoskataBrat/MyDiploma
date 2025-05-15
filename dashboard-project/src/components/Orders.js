@@ -11,7 +11,7 @@ const Orders = () => {
 
   const fetchOrders = async () => {
     try {
-      const response = await fetch("http://localhost:5000/admin/orders");
+      const response = await fetch("https://my-diploma-backend.vercel.app/admin/orders");
       const data = await response.json();
       setOrders(data);
     } catch (error) {
@@ -21,7 +21,7 @@ const Orders = () => {
 
   const updateOrderStatus = async (id, status) => {
     try {
-      const response = await fetch(`http://localhost:5000/admin/orders/${id}`, {
+      const response = await fetch(`https://my-diploma-backend.vercel.app/admin/orders/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

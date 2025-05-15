@@ -1,1 +1,1 @@
-export const API_URL = "https://auth-backend.vercel.app";
+ export const API_URL = "https://my-diploma-backend.vercel.app";

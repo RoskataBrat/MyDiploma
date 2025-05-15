@@ -11,7 +11,7 @@ const OrderList = () => {
   // Fetch orders on mount
   const fetchOrders = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/orders");
+      const response = await axios.get("https://my-diploma-backend.vercel.app/api/orders");
       if (response.data && Array.isArray(response.data)) {
         setOrders(response.data); // Set orders if valid data is received
       } else {
@@ -30,7 +30,7 @@ const OrderList = () => {
   const handleStatusChange = async (id, newStatus) => {
     try {
       const updatedOrder = { status: newStatus };
-      const response = await axios.put(`http://localhost:5000/api/orders/${id}`, updatedOrder);
+      const response = await axios.put(`https://my-diploma-backend.vercel.app/api/orders/${id}`, updatedOrder);
       console.log(response.data); // Log the response
 
       setOrders((prevOrders) =>
@@ -48,7 +48,7 @@ const OrderList = () => {
   const handleDeleteOrder = async (id) => {
     setLoading(true);
     try {
-      await axios.delete(`http://localhost:5000/api/orders/${id}`);
+      await axios.delete(`https://my-diploma-backend.vercel.app/api/orders/${id}`);
       setOrders((prevOrders) => prevOrders.filter((order) => order._id !== id));
     } catch (err) {
       console.error("Грешка при изтриване на поръчката:", err.message);

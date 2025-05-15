@@ -12,7 +12,7 @@ const AdminOrders = () => {
         const token = localStorage.getItem("adminToken");
         if (!token) throw new Error("Admin token is missing");
 
-        const response = await fetch("http://localhost:5000/api/admin/orders", {
+        const response = await fetch("http://localhost:5000/orders", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`, // Attach token

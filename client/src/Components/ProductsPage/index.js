@@ -6,7 +6,7 @@ const ProductsPage = () => {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const response = await axios.get("http://localhost:5000/products");
+      const response = await axios.get("https://my-diploma-backend.vercel.app/products");
       setProducts(response.data);
     };
     fetchProducts();

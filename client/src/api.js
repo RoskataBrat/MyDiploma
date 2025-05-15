@@ -1,18 +1,5 @@
 import axios from "axios";
 
-const apiBaseUrl = process.env.REACT_APP_BACKEND_URL || process.env.NEXT_PUBLIC_BACKEND_URL;
-
-export const signIn = async (data) => {
-  try {
-    const response = await axios.post(`${apiBaseUrl}/api/auth/signin`, data);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
-};
-
-
-
 // Configure axios with the base URL
 const API = axios.create({ baseURL: "http://localhost:5000/api" }); // Base URL includes `/api`
 
@@ -36,5 +23,3 @@ export const signin = (formData) => API.post("/auth/signin", formData);
 export const fetchAdminOrders = () => API.get("/orders"); // Fetch all orders
 export const createAdminOrder = (orderData) => API.post("/orders", orderData); // Create a new order
 export const deleteAdminOrder = (orderId) => API.delete(`/orders/${orderId}`); // Delete an order
-
-
