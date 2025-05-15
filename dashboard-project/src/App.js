@@ -122,7 +122,7 @@ function App() {
     try {
       const response = await axios.post("http://localhost:5000/api/auth/logout");
       if (response.status === 200) {
-        window.location.href = response.data.redirect;
+        window.location.href = "http://localhost:3000";
       }
     } catch (error) {
       console.error("Error during logout:", error);
