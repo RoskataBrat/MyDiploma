@@ -10,7 +10,6 @@ require("dotenv").config();
 
 const app = express();
 
-
 // Middleware
 app.use(bodyParser.json());
 app.use(express.json());
@@ -23,7 +22,7 @@ app.use(
 );
 
 // MongoDB Connection
-const MONGO_URI = process.env.MONGO_URI;
+const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost:27017/localdb";
 if (!MONGO_URI) {
   throw new Error("MONGO_URI is not defined. Check your .env file.");
 }
