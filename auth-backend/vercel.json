@@ -1,6 +1,8 @@
+
 {
-  "framework": null,
   "version": 2,
+  "buildCommand": false,
+  "outputDirectory": ".",
   "builds": [
     {
       "src": "server.js",
