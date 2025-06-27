@@ -115,12 +115,27 @@ const ProductPage = ({ cart, setCart }) => {
             <section className="productDetails section">
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-5 pl-5">
+                        <div className="col-md-5 pl-5" style={{ marginLeft: "60px"}}>
                             <Zoom>
                                 <img src={product.image} alt={product.name} style={{ width: "100%" }} />
                             </Zoom>
                         </div>
-                        <div className="col-md-7 pl-5">
+                         <div className="md-3 pl-1" style={{ display: "flex", flexWrap: "wrap", gap: "10px", marginTop:"-450px" }}>
+                            <Zoom>
+                                <img src={product.image} alt={product.name} style={{ width: "100px", height:"100px" }} />
+                            </Zoom>
+                        </div>
+                        <div className="md-3 pl-1" style={{ display: "flex", flexWrap: "wrap", gap: "10px", marginTop:"-300px" }}>
+                            <Zoom>
+                                <img src={product.image} alt={product.name} style={{ width: "100px", height:"100px" }} />
+                            </Zoom>
+                        </div>
+                         <div className="md-3 pl-1" style={{ display: "flex", flexWrap: "wrap", gap: "10px", marginTop:"-150px" }}>
+                            <Zoom>
+                                <img src={product.image} alt={product.name} style={{ width: "100px", height:"100px" }} />
+                            </Zoom>
+                        </div>
+                        <div className="col-md-7 pl-5" style={{ marginTop: "-470px", marginBottom:"100px", marginLeft: "600px" }}>
                             <h2 className="hd text-capitalize">{product.name}</h2>
                             <ul className="list list-inline">
                                 <li className="list-inline-item">
@@ -233,7 +248,7 @@ const ProductPage = ({ cart, setCart }) => {
                                 )}
                                 <Button onClick={() => toggleLikeProduct(product)}
                                     className={isLiked ? "liked-button active" : "liked-button"}>
-                                    <FaRegHeart />{isLiked ? "Liked" : "Like"}
+                                    <FaRegHeart />{isLiked ? "Харесано" : "Харесай"}
                                 </Button>
                                 {!<Button className="btn-blue btn-lg btn-big btn-circle ml-3">
                                     <MdOutlineCompareArrows />

@@ -22,8 +22,8 @@ const Fashion = () => {
   const { toggleLikeProduct, likedProducts } = useContext(MyContext); // Access context here
 
   const products = [
-    { id: 1, name: "Тениска - Калвин Клейн  ", brand: "Калвин Клейн",category:"tshirts", slug: "cklein", price: 99, image: tshirt_cklein },
-    { id: 2, name: "Тениска - Гучи", brand: "Gucci",category:"tshirts", slug: "gucci", price: 45.0, image: tshirt_gucci },
+    { id: 1, name: "Тениска - Калвин Клейн  ", brand: "Калвин Клейн",category:"tshirts", slug: "cklein", price: 60, image: tshirt_cklein },
+    { id: 2, name: "Тениска - Гучи", brand: "Gucci",category:"tshirts", slug: "gucci", price: 60.0, image: tshirt_gucci },
     { id: 3, name: "Найк", brand: "Nike",category:"shoes", slug: "nikeG", price: 79.0, image: shoes_nike_gold },
     { id: 4, name: "Найк-Джордан", brand: "Nike",category:"shoes", slug: "nikeJ", price: 79.0, image: shoes_jordan },
     { id: 5, name: "Флексит - Шапка", brand: "Флексит",category:"hats", price: 29.0, slug: "hatFlexit", image: hat_flexit_acient },
@@ -163,7 +163,7 @@ const Fashion = () => {
             <div key={product.id} className="item productItem2" onClick={() => viewProductDetails(product.slug)}>
               <div className="imgWrapper">
                 <img src={product.image} alt={product.name} />
-                <span className="badge badge-primary">28%</span>
+                <span className="badge badge-primary">50%</span>
                 <div className="actions">
                   <Button onClick={() => viewProductDetails(product.id)}>
                     <TfiFullscreen />

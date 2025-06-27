@@ -4,7 +4,12 @@ import { IoMdHeartEmpty } from "react-icons/io";
 import { TfiFullscreen } from "react-icons/tfi";
 import "../../styles/Electronics.css";
 import ProductModal from "../../Components/ProductModal";
-import torta_shoko from "../../assets/images/torta_shokoladova.webp";
+import keis_porshe from "../../assets/images/keis_porshe.jpg";
+import keis_sofia from "../../assets/images/keis_sofia.webp";
+import keis_levski from "../../assets/images/keis_levski.jpg";
+import keis_w1 from "../../assets/images/keis_w1.jpg";
+import keis_w2 from "../../assets/images/keis_w2.jpg";
+import keis_time from "../../assets/images/keis_time.jpeg";
 import { MyContext } from "../../App";
 import { useNavigate } from "react-router-dom";
 
@@ -17,9 +22,12 @@ const Cases = () => {
   const { toggleLikeProduct, likedProducts } = useContext(MyContext); // Access context here
 
   const products = [
-    { id: 1, name: "Сахер", category: "cakes", price: 100, image: torta_shoko },
-    { id: 2, name: "Сахер", category: "cakes", price: 100, image: torta_shoko },
-    { id: 3, name: "Сахер", category: "cakes", price: 100, image: torta_shoko },
+    { id: 1, name: "Кейс Porshe", category: "men",slug:"kporshe", price: 80, image: keis_porshe },
+    { id: 2, name: "Кейс Sofia", category: "men",slug:"ksofia", price: 80, image: keis_sofia},
+    { id: 3, name: "Кейс Levski", category: "men",slug:"klevski", price: 80, image: keis_levski },
+    { id: 4, name: "Кейс ButterFly", category: "women",slug:"k_w1", price: 80, image: keis_w1 },
+    { id: 5, name: "Кейс SunShine", category: "women",slug:"k_w2", price: 80, image: keis_w2 },
+    { id: 6, name: "Кейс OnTime", category: "women",slug:"ktime", price: 80, image: keis_time },
   ];
 
   const handleCategoryChange = (category) => {
@@ -69,10 +77,19 @@ const Cases = () => {
               <input
                 type="checkbox"
                 value="cakes"
-                onChange={() => handleCategoryChange("cakes")}
-                checked={selectedCategories.includes("cakes")}
+                onChange={() => handleCategoryChange("men")}
+                checked={selectedCategories.includes("men")}
               />
-              Кексове / Мъфини
+              Мъжки
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                value="cakes"
+                onChange={() => handleCategoryChange("women")}
+                checked={selectedCategories.includes("women")}
+              />
+              Женски
             </label>
           </div>
 

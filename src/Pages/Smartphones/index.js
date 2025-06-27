@@ -21,7 +21,7 @@ const Smartphones = () => {
     { id: 1, name: "iPhone", brand: "iPhone", price: 899, slug: "iphone", image: iphone },
     { id: 2, name: "Samsung A54", brand: "Samsung", price: 250, slug: "samsung-a54", image: samsungA54 },
     { id: 3, name: "Xiaomi Redmi Note", brand: "Xiaomi", price: 199, slug: "xiaomi-redmi-note", image: redmiA3 },
-    { id: 4, name: "Huawei Mate 40", brand: "Huawei", price: 800, slug: "huawei-mate-40", image: huawei_mate_40 },
+    { id: 4, name: "Huawei Mate 40", brand: "Huawei", price: 199, slug: "huawei-mate-40", image: huawei_mate_40 },
   ]);
 
   // Add a new product dynamically
@@ -153,7 +153,7 @@ const Smartphones = () => {
           <div key={product.id} className="item productItem2" onClick={() => viewProductDetails(product.slug)}>
             <div className="imgWrapper">
               <img src={product.image} alt={product.name} />
-              <span className="badge badge-primary">28%</span>
+              <span className="badge badge-primary">30%</span>
               <div className="actions">
                 <Button onClick={() => viewProductDetails(product.slug)}>
                   <TfiFullscreen />

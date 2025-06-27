@@ -7,6 +7,12 @@ import ReactPaginate from "react-paginate";
 import "../../styles/Electronics.css";
 import shoes_nike_gold from "../../assets/images/shoes_nike_gold.jpg";
 import shoes_jordan from "../../assets/images/jordan.webp";
+import damski_maratonki from "../../assets/images/damski_maratonki.avif";
+import damski_tokcheta from "../../assets/images/damski_tokcheta.avif";
+import shoes_official from "../../assets/images/shoes_officiall.avif";
+import shoes_nike from "../../assets/images/shoes_nike.avif";
+import shoes_unknown from "../../assets/images/shoes_unknown.avif";
+import shoes_adidas from "../../assets/images/shoes_adidas.webp";
 import { MyContext } from "../../App";
 
 const Shoes = () => {
@@ -21,12 +27,12 @@ const Shoes = () => {
 
   const productsPerPage = 6; // Number of products to display per page
   const products = [
-    { id: 1, name: "Найк", brand: "Nike", slug: "nikeG", price: 79.0, image: shoes_nike_gold },
-    { id: 2, name: "Найк", brand: "Nike", slug: "nikeG", price: 79.0, image: shoes_nike_gold },
-    { id: 3, name: "Найк", brand: "Nike", slug: "nikeG", price: 79.0, image: shoes_nike_gold },
-    { id: 4, name: "Найк-Джордан", brand: "Nike", slug: "nikeJ", price: 79.0, image: shoes_jordan },
-    { id: 5, name: "Найк-Джордан", brand: "Nike", slug: "nikeJ", price: 79.0, image: shoes_jordan },
-    { id: 6, name: "Найк-Джордан", brand: "Nike", slug: "nikeJ", price: 79.0, image: shoes_jordan },
+    { id: 1, name: "Официални обувки", brand: "Deuchman",category:"Официални", slug: "official", price: 80.0, image: shoes_official },
+    { id: 2, name: "Nike BlueShark", brand: "Nike",category:"Спортни", slug: "nikeG", price: 80.0, image: shoes_nike},
+    { id: 3, name: "Skechers", brand: "Deuchman",category:"Спортни", slug: "damski_maratonki", price: 80.0, image: damski_maratonki },
+    { id: 4, name: "Официални - токчета", brand: "Deuchman",category:"Дамски", slug: "damski_tokcheta", price: 80.0, image: damski_tokcheta },
+    { id: 5, name: "Nike RedStorm", brand: "Deuchman",category:"Спортни", slug: "red_runners", price: 80.0, image: shoes_unknown },
+    { id: 6, name: "Adidas DarkGrass", brand: "Adidas",category:"Спортни", slug: "adidas", price: 80.0, image: shoes_adidas },
     // Add more products as needed
   ];
 
@@ -91,29 +97,29 @@ const Shoes = () => {
             <label>
               <input
                 type="checkbox"
-                value="all"
-                onChange={() => handleCategoryChange("all")}
-                checked={selectedCategories.includes("all")}
-              />
-              Всичко
-            </label>
-            <label>
-              <input
-                type="checkbox"
                 value="Nike"
-                onChange={() => handleCategoryChange("Nike")}
-                checked={selectedCategories.includes("Nike")}
+                onChange={() => handleCategoryChange("Спортни")}
+                checked={selectedCategories.includes("Спортни")}
               />
-              Найк
+              Спортни
             </label>
             <label>
               <input
                 type="checkbox"
                 value="Adidas"
-                onChange={() => handleCategoryChange("Adidas")}
-                checked={selectedCategories.includes("Adidas")}
+                onChange={() => handleCategoryChange("Официални")}
+                checked={selectedCategories.includes("Официални")}
               />
-              Адидас
+              Официални
+            </label>
+             <label>
+              <input
+                type="checkbox"
+                value="Adidas"
+                onChange={() => handleCategoryChange("Дамски")}
+                checked={selectedCategories.includes("Дамски")}
+              />
+              Дамски
             </label>
           </div>
 
@@ -204,7 +210,7 @@ const Shoes = () => {
         <h4>{product.name}</h4>
         <span className="text-success">В наличност</span>
         <div className="d-flex">
-          <span className="oldPrice">{product.price + 100}.00 лв.</span>
+          <span className="oldPrice">{product.price + 80}.00 лв.</span>
           <span className="netPrice text-danger ml-2">{product.price}.00 лв.</span>
         </div>
       </div>

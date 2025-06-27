@@ -18,13 +18,13 @@ function SignUp() {
     const hasNumber = /\d/; // Regex for at least one number
     const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/; // Regex for at least one special character
     if (password.length < minLength) {
-      return "Password must be at least 6 characters long.";
+      return "Паролата трябва да е поне 6 символа.";
     }
     if (!hasNumber.test(password)) {
-      return "Password must contain at least one number.";
+      return "Паролата трябва да съдържа поне една цифра.";
     }
     if (!hasSpecialChar.test(password)) {
-      return "Password must contain at least one special character (e.g., !, @, $).";
+      return "Паролата трябва да съдържа поне един специален знак (напр. !, @, $).";
     }
     return ""; // No errors
   };

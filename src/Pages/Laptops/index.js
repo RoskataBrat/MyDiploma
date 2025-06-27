@@ -68,7 +68,7 @@ const Laptops = () => {
       {/* Sidebar Filters */}
       <div className="filters">
         <div className="filter-section">
-          <h4>Brands:</h4>
+          <h4>Брандове:</h4>
           <label>
             <input
               type="checkbox"

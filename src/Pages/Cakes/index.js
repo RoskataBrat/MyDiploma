@@ -7,6 +7,9 @@ import ProductModal from "../../Components/ProductModal";
 import torta_shoko from "../../assets/images/torta_shokoladova.webp";
 import torta_cherno_kadife from "../../assets/images/bakery_cakes_cherno_kadife.png";
 import torta_cherveno_kadife from "../../assets/images/bakery_cakes_cherveno_kadife.webp";
+import cakes_fruit from "../../assets/images/cakes_fruit.jpg";
+import cakes_shoko_biskvita from "../../assets/images/cakes_shoko_biskvita.webp";
+import cakes_malina from "../../assets/images/cakes_malina.webp";
 import { useNavigate } from "react-router-dom";
 import { MyContext } from "../../App";
 
@@ -19,12 +22,12 @@ const Cakes = () => {
   const { toggleLikeProduct, likedProducts } = useContext(MyContext); // Access context here
 
   const products = [
-    { id: 1, name: "Сахер", category: "cakes", slug:"saher", price: 100, image: torta_shoko },
-    { id: 2, name: "Сахер", category: "cakes", slug:"saher", price: 150, image: torta_shoko },
-    { id: 3, name: "Сахер", category: "cakes", slug:"saher", price: 200, image: torta_shoko },
-    { id: 4, name: "Торта - Черно Кадифе", category: "cakes", slug:"cherno_kadife", price: 200, image: torta_cherno_kadife },
-    { id: 5, name: "Торта - Червено Кадифе", category: "cakes", slug:"cherveno_kadife", price: 200, image: torta_cherveno_kadife },
-    { id: 6, name: "Торта - Черно Кадифе", category: "cakes", slug:"cherno_kadife", price: 200, image: torta_cherno_kadife },
+    { id: 1, name: "Шоко бисквита", category: "shoko", slug:"shoko_cookie", price: 50, image: cakes_shoko_biskvita },
+    { id: 2, name: "Сахер", category: "shoko", slug:"saher", price: 50, image: torta_shoko },
+    { id: 3, name: "Плодова торта", category: "fruits", slug:"cake_fruit", price: 50, image: cakes_fruit },
+    { id: 4, name: "Торта - Малина", category: "fruits", slug:"cake_malina", price: 50, image: cakes_malina},
+    { id: 5, name: "Червено Кадифе", category: "others", slug:"cherveno_kadife", price: 50, image: torta_cherveno_kadife },
+    { id: 6, name: "Черно Кадифе", category: "shoko", slug:"cherno_kadife", price: 50, image: torta_cherno_kadife },
   ];
 
   const handleCategoryChange = (category) => {
@@ -74,10 +77,28 @@ const Cakes = () => {
               <input
                 type="checkbox"
                 value="cakes"
-                onChange={() => handleCategoryChange("cakes")}
-                checked={selectedCategories.includes("cakes")}
+                onChange={() => handleCategoryChange("shoko")}
+                checked={selectedCategories.includes("shoko")}
               />
-              Кексове
+              Шоколадови
+            </label>
+             <label>
+              <input
+                type="checkbox"
+                value="cakes"
+                onChange={() => handleCategoryChange("fruits")}
+                checked={selectedCategories.includes("fruits")}
+              />
+              Плодови
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                value="cakes"
+                onChange={() => handleCategoryChange("others")}
+                checked={selectedCategories.includes("others")}
+              />
+              Други
             </label>
           </div>
 
@@ -125,7 +146,7 @@ const Cakes = () => {
             <div key={product.id} className="item productItem2" onClick={() => viewProductDetails(product.slug)}>
               <div className="imgWrapper">
                 <img src={product.image} alt={product.name} />
-                <span className="badge badge-primary">28%</span>
+                <span className="badge badge-primary">50%</span>
                 <div className="actions">
                   <Button onClick={() => viewProductDetails(product.slug)}>
                     <TfiFullscreen />
@@ -140,7 +161,7 @@ const Cakes = () => {
                 <h4>{product.name}</h4>
                 <span className="text-success">В наличност</span>
                 <div className="d-flex">
-                  <span className="oldPrice">{product.price + 100}.00 лв.</span>
+                  <span className="oldPrice">{product.price + 50}.00 лв.</span>
                   <span className="netPrice text-danger ml-2">{product.price}.00 лв.</span>
                 </div>
               </div>

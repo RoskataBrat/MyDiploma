@@ -9,6 +9,7 @@ import SearchBox from "./SearchBox";
 import Navigation from "./Navigation";
 import { MyContext } from "../../App"; // Context for global state
 import sigma from "../../assets/images/sigmamale.jpg";
+import icon_user from "../../assets/images/icon_user.jpg";
 import "../../styles/ProfileHeader.css";
 import { useSubscription } from "../../context/SubscriptionContext";
 
@@ -38,7 +39,7 @@ const Header = () => {
         <div className="top-strip bg-blue">
           <div className="container">
             <p className="mb-0 mt-0 text-center">
-              !!! ВНИМАНИЕ !!! Офертите за пролетния сезон ще изтекат на 27.05.2025г.!!!
+              !!! ВНИМАНИЕ !!! Офертите за летния сезон ще изтекат на 04.06.2025г.!!!
             </p>
           </div>
         </div>
@@ -99,7 +100,7 @@ const Header = () => {
                         onClick={toggleProfileDropdown}
                       >
                         <img
-                          src={user?.profileImage || sigma}
+                          src={user?.profileImage || icon_user}
                           alt="Profile"
                           className="profile-image rounded-circle"
                         />

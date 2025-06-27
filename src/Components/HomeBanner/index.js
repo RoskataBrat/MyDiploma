@@ -7,6 +7,7 @@ import new_season_first from "../../assets/images/new_season_1.webp";
 import new_season_second from "../../assets/images/new_season_2.webp";
 import new_season_third from "../../assets/images/new_season_3.webp";
 import spring_offers from "../../assets/images/spring_offers.webp";
+import new_collection from "../../assets/images/new_collection.webp";
 
 const HomeBanner = () => {
     const settings = {
@@ -25,7 +26,7 @@ const HomeBanner = () => {
             <div className="homeBannerSection">
                 <Slider {...settings}>
                     <div className="item">
-                        <img src={spring_offers} alt="Dynki Banner" className="w-100" />
+                        <img src={new_collection} alt="Dynki Banner" className="w-100" />
                     </div>
                     <div className="item">
                         <img src={new_season_first} alt="Esen Banner" className="w-100" />

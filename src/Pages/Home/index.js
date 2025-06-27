@@ -1,45 +1,56 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
 import HomeBanner from "../../Components/HomeBanner";
 import HomeCat from "../../Components/HomeCat";
 import FeaturedProducts from "../../Components/FeaturedProducts";
 import Subscribe from "../../Components/Subscribe";
 import iphone from "../../assets/images/iphone.jpg";
 import razer from "../../assets/images/razer.jpg";
+import lenovo_thinkbook from "../../assets/images/lenovo_thinkbook.jpg";
 import samsungA54 from "../../assets/images/samsungA54.jpg";
+import tshirt_gucci from "../../assets/images/tshirt_gucci.webp";
+import "../../Components/ProductData";
+import FavoriteProducts from "../../Components/FavoriteProducts";
+import TrendProducts from "../../Components/TrendProducts";
 
 const Home = ({ user, signOut }) => {
   const [hoveredProduct, setHoveredProduct] = useState(null);
+  const navigate = useNavigate(); // Initialize navigation
 
   const featuredProducts = [
     {
       id: 1,
-      title: "Wool Runner Go - Fluff",
-      description: "Super Soft, Machine Washable",
-      price: "$99.99",
-      image: iphone,
+      title: "Lenovo ThinkBook",
+      description: "В наличност",
+      price: "450.00 лв.",
+      image: lenovo_thinkbook,
+      slug: "laptop_Lenovo", // Add slug for navigation
     },
     {
       id: 2,
-      title: "Wool Runner Mizzle",
-      description: "Weather-Ready, Everyday Trainer",
-      price: "$129.99",
-      image: razer,
+      title: "Тениска Gucci",
+      description: "В наличност",
+      price: "60.00 лв.",
+      image: tshirt_gucci,
+      slug: "gucci",
     },
     {
       id: 3,
-      title: "Runner Go - Corduroy",
-      description: "Classically Cozy Organic Cotton",
-      price: "$79.99",
+      title: "Смартфон Samsung A54",
+      description: "В наличност",
+      price: "250.00 лв.",
       image: samsungA54,
+      slug: "samsung-a54",
     },
   ];
 
   return (
     <>
-
       <HomeBanner />
       {!<HomeCat />}
+      <FavoriteProducts></FavoriteProducts>
       <FeaturedProducts />
+      <TrendProducts></TrendProducts>
 
       <section
         className="featured-products"
@@ -52,7 +63,6 @@ const Home = ({ user, signOut }) => {
           backgroundColor: "rgb(0, 0, 0)",
         }}
       >
-        {/* Left Side: Hovered Product Details */}
         <div
           className="product-details"
           style={{
@@ -95,7 +105,6 @@ const Home = ({ user, signOut }) => {
           )}
         </div>
 
-        {/* Right Side: Product Cards */}
         <div
           className="products-container"
           style={{
@@ -123,6 +132,7 @@ const Home = ({ user, signOut }) => {
               }}
               onMouseEnter={() => setHoveredProduct(product)}
               onMouseLeave={() => setHoveredProduct(null)}
+              onClick={() => navigate(`/product/${product.slug}`)} // Navigate to the product page
             >
               <img
                 src={product.image}
@@ -154,3 +164,4 @@ const Home = ({ user, signOut }) => {
 };
 
 export default Home;
+

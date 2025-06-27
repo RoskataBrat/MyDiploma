@@ -66,7 +66,7 @@ const PC = () => {
       <div className="filters">
         <div>
           <div className="filter-section">
-            <h4>Brand:</h4>
+            <h4>Брандове:</h4>
             <label>
               <input
                 type="checkbox"
